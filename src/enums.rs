@@ -7,6 +7,8 @@ use std::convert::TryFrom;
 use enum_dispatch::enum_dispatch;
 use wasm_bindgen::{JsCast, JsValue};
 
+// Many objects used.
+#[allow(clippy::wildcard_imports)]
 use crate::{objects::*, prelude::*};
 
 #[enum_dispatch(Attackable)]

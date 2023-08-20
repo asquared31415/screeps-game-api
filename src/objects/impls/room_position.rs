@@ -1,16 +1,19 @@
 use std::convert::TryInto;
 
 use js_sys::{Array, JsString, Object};
-use num_traits::*;
+use num_traits::FromPrimitive;
 use wasm_bindgen::{prelude::*, JsCast};
 
 use crate::{
-    constants::{find::*, look::*, Color, Direction, ErrorCode, StructureType},
+    constants::{Color, Direction, ErrorCode, StructureType},
+    find::Find,
     local::{Position, RoomCoordinate, RoomName},
+    look::{Look, LookResult},
     objects::{CostMatrix, FindPathOptions, Path},
     pathfinder::RoomCostResult,
     prelude::*,
     prototypes::ROOM_POSITION_PROTOTYPE,
+    FindConstant, LookConstant,
 };
 
 #[wasm_bindgen]
@@ -387,7 +390,9 @@ impl RoomPosition {
         T: LookConstant,
     {
         match self.look_for_internal(T::look_code()) {
-            Ok(array) => Ok(array.map_or_else(Vec::new, |arr| arr.iter().map(T::convert_and_check_item).collect())),
+            Ok(array) => Ok(array.map_or_else(Vec::new, |arr| {
+                arr.iter().map(T::convert_and_check_item).collect()
+            })),
             Err(_) => Err(ErrorCode::NotInRange),
         }
     }

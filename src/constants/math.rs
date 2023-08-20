@@ -1,7 +1,7 @@
 //! Functions allowing calculation of the resulting values of formulas used by
 //! game mechanics related to constant values.
 
-use crate::constants::*;
+use crate::constants::{GCL_MULTIPLY, GCL_POW, POWER_LEVEL_MULTIPLY, POWER_LEVEL_POW};
 
 /// Provides the total number of control points needed to achieve a given Global
 /// Control Level

@@ -181,6 +181,8 @@ impl StructureType {
     pub const fn initial_hits(self) -> Option<u32> {
         #[allow(clippy::enum_glob_use)] // local import
         use self::StructureType::*;
+        // We use many, also local.
+        #[allow(clippy::wildcard_imports)]
         use super::numbers::*;
 
         let hits = match self {

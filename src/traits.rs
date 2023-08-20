@@ -7,6 +7,8 @@ use enum_dispatch::enum_dispatch;
 use js_sys::{Array, JsString};
 use wasm_bindgen::prelude::*;
 
+// Lots of objects have trait impls here.
+#[allow(clippy::wildcard_imports)]
 use crate::{
     constants::*,
     enums::*,

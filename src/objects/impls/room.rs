@@ -1,7 +1,7 @@
 use std::{convert::TryInto, fmt};
 
 use js_sys::{Array, JsString, Object};
-use num_traits::*;
+use num_traits::FromPrimitive;
 use serde::{
     de::{self, MapAccess, Visitor},
     Deserialize, Deserializer, Serialize,
@@ -9,15 +9,19 @@ use serde::{
 use serde_repr::{Deserialize_repr, Serialize_repr};
 use wasm_bindgen::{prelude::*, JsCast};
 
+// Many objects used.
+#[allow(clippy::wildcard_imports)]
 use crate::{
     constants::{
-        find::*, look::*, Color, Direction, ErrorCode, ExitDirection, PowerType, ResourceType,
-        StructureType,
+        Color, Direction, ErrorCode, ExitDirection, PowerType, ResourceType, StructureType,
     },
+    find::Find,
     local::{LodashFilter, RoomName},
+    look::{Look, LookResult, PositionedLookResult},
     objects::*,
     pathfinder::RoomCostResult,
     prelude::*,
+    FindConstant, LookConstant,
 };
 
 #[wasm_bindgen]

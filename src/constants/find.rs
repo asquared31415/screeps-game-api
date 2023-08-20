@@ -23,6 +23,8 @@ use enum_iterator::Sequence;
 use serde::{Deserialize, Serialize};
 use wasm_bindgen::prelude::*;
 
+// Many objects used.
+#[allow(clippy::wildcard_imports)]
 use crate::{enums::StructureObject, objects::*};
 
 /// Translates `FIND_*` constants for interal API calls

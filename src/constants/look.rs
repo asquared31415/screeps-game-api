@@ -11,6 +11,8 @@ use enum_iterator::Sequence;
 use serde::{Deserialize, Serialize};
 use wasm_bindgen::{prelude::*, JsCast};
 
+// Many objects used.
+#[allow(clippy::wildcard_imports)]
 use crate::{constants::Terrain, enums::StructureObject, objects::*};
 
 /// Translates `LOOK_*` constants for interal API calls

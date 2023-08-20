@@ -5,7 +5,7 @@ use std::convert::TryInto;
 
 use enum_iterator::Sequence;
 use js_sys::{Array, JsString, Object};
-use num_traits::*;
+use num_traits::FromPrimitive;
 use serde::Deserialize;
 use wasm_bindgen::{prelude::*, JsCast};
 
