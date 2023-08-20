@@ -133,8 +133,7 @@ impl SearchResults {
     pub fn path(&self) -> Vec<Position> {
         self.path_internal()
             .iter()
-            .map(|p| p.unchecked_into())
-            .map(|p: RoomPosition| p.into())
+            .map(|p| Position::from(RoomPosition::unchecked_from_js(p)))
             .collect()
     }
 
