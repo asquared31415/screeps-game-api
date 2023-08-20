@@ -117,8 +117,8 @@ mod test {
     #[test]
     fn world_coords_round_trip() {
         for room_name in TEST_ROOM_NAMES {
-            for x in gen_test_coords().iter().cloned() {
-                for y in gen_test_coords().iter().cloned() {
+            for x in gen_test_coords().iter().copied() {
+                for y in gen_test_coords().iter().copied() {
                     let original_pos = Position::new(x, y, room_name.parse().unwrap());
                     let (wx, wy) = original_pos.world_coords();
                     let new = Position::from_world_coords(wx, wy);
