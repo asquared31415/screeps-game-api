@@ -35,6 +35,7 @@ pub enum AttackableObject {
 
 impl From<AttackableObject> for RoomObject {
     fn from(attackable: AttackableObject) -> Self {
+        #[allow(clippy::enum_glob_use)] // local import
         use AttackableObject::*;
 
         match attackable {
@@ -64,6 +65,7 @@ impl From<AttackableObject> for RoomObject {
 
 impl AsRef<RoomObject> for AttackableObject {
     fn as_ref(&self) -> &RoomObject {
+        #[allow(clippy::enum_glob_use)] // local import
         use AttackableObject::*;
 
         match self {
@@ -393,6 +395,7 @@ pub enum TransferableObject {
 
 impl AsRef<RoomObject> for TransferableObject {
     fn as_ref(&self) -> &RoomObject {
+        #[allow(clippy::enum_glob_use)] // local import
         use TransferableObject::*;
 
         match self {
@@ -560,6 +563,7 @@ impl TryFrom<StructureObject> for StoreObject {
 
 impl From<Structure> for StructureObject {
     fn from(structure: Structure) -> Self {
+        #[allow(clippy::enum_glob_use)] // local import
         use crate::constants::StructureType::*;
 
         match structure.structure_type() {

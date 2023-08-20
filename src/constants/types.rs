@@ -64,6 +64,7 @@ impl StructureType {
     #[inline]
     #[must_use]
     pub const fn construction_cost(self) -> Option<u32> {
+        #[allow(clippy::enum_glob_use)] // local import
         use self::StructureType::*;
 
         let cost = match self {
@@ -92,6 +93,7 @@ impl StructureType {
     #[inline]
     #[must_use]
     pub const fn controller_structures(self, current_rcl: u32) -> u32 {
+        #[allow(clippy::enum_glob_use)] // local import
         use self::StructureType::*;
 
         match self {
@@ -177,6 +179,7 @@ impl StructureType {
     #[inline]
     #[must_use]
     pub const fn initial_hits(self) -> Option<u32> {
+        #[allow(clippy::enum_glob_use)] // local import
         use self::StructureType::*;
         use super::numbers::*;
 
@@ -364,6 +367,7 @@ impl ResourceType {
     #[inline]
     #[must_use]
     pub const fn boost(self) -> Option<Boost> {
+        #[allow(clippy::enum_glob_use)] // local import
         use ResourceType::*;
         let boost = match self {
             // these comments copied directly from JavaScript 'constants.js' file.

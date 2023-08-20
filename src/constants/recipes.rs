@@ -22,6 +22,7 @@ impl ResourceType {
     #[inline]
     #[must_use]
     pub const fn reaction_components(self) -> Option<[ResourceType; 2]> {
+        #[allow(clippy::enum_glob_use)] // local import
         use ResourceType::*;
         let components = match self {
             // OH: O + H,
@@ -102,6 +103,7 @@ impl ResourceType {
     #[inline]
     #[must_use]
     pub const fn reaction_time(self) -> Option<u32> {
+        #[allow(clippy::enum_glob_use)] // local import
         use ResourceType::*;
         let time = match self {
             // these comments copied directly from JavaScript 'constants.js' file.
@@ -183,6 +185,7 @@ impl ResourceType {
     /// factory to make each commodity
     #[must_use]
     pub fn commodity_recipe(self) -> Option<FactoryRecipe> {
+        #[allow(clippy::enum_glob_use)] // local import
         use ResourceType::*;
         let recipe = match self {
             UtriumBar => FactoryRecipe {

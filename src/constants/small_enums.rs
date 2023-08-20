@@ -145,6 +145,7 @@ impl ::std::ops::Neg for Direction {
     /// ```
     #[inline]
     fn neg(self) -> Direction {
+        #[allow(clippy::enum_glob_use)] // local import
         use Direction::*;
 
         match self {
