@@ -95,7 +95,7 @@ impl<K, V> From<Object> for JsHashMap<K, V> {
     fn from(map: Object) -> Self {
         Self {
             map,
-            _phantom: Default::default(),
+            _phantom: PhantomData,
         }
     }
 }
@@ -104,7 +104,7 @@ impl<K, V> From<JsValue> for JsHashMap<K, V> {
     fn from(val: JsValue) -> Self {
         Self {
             map: val.into(),
-            _phantom: Default::default(),
+            _phantom: PhantomData,
         }
     }
 }
@@ -122,7 +122,7 @@ impl<T> OwnedArrayIter<T> {
         OwnedArrayIter {
             range: 0..array.length(),
             array,
-            _phantom: Default::default(),
+            _phantom: PhantomData,
         }
     }
 }

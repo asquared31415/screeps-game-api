@@ -246,7 +246,7 @@ impl Default for SearchOptions<fn(RoomName) -> MultiRoomCostResult> {
 
         SearchOptions {
             callback: cost_matrix,
-            inner: Default::default(),
+            inner: InnerSearchOptions::default(),
         }
     }
 }
@@ -259,7 +259,7 @@ where
     pub fn new(callback: F) -> Self {
         SearchOptions {
             callback,
-            inner: Default::default(),
+            inner: InnerSearchOptions::default(),
         }
     }
 
