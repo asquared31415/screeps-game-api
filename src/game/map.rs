@@ -199,28 +199,17 @@ where
     pub(crate) fn into_js_options<R>(self, callback: impl Fn(&JsFindRouteOptions) -> R) -> R {
         let mut raw_callback = self.route_callback;
 
-        let mut owned_callback = move |to_room: RoomName, from_room: RoomName| -> f64 {
-            raw_callback(to_room, from_room)
-        };
+        // Behind a `&mut dyn` so that the type can be made 'static.
+        let callback_type_erased: &mut dyn FnMut(RoomName, RoomName) -> f64 = &mut raw_callback;
 
-        //
-        // Type erased and boxed callback: no longer a type specific to the closure
-        // passed in, now unified as &Fn
-        //
-
-        let callback_type_erased: &mut (dyn FnMut(RoomName, RoomName) -> f64) = &mut owned_callback;
-
-        // Overwrite lifetime of reference so it can be passed to javascript.
-        // It's now pretending to be static data. This should be entirely safe
-        // because we control the only use of it and it remains valid during the
-        // pathfinder callback. This transmute is necessary because "some lifetime
-        // above the current scope but otherwise unknown" is not a valid lifetime.
-        //
-
-        let callback_lifetime_erased: &'static mut (dyn FnMut(RoomName, RoomName) -> f64) =
+        // Make the FnMut think that it's valid for 'static so that it can be passed to
+        // JavaScript.
+        // SAFETY: The callback is only used while the data is valid. before
+        // `raw_callback` goes out of scope.
+        let callback_lifetime_erased: &'static mut dyn FnMut(RoomName, RoomName) -> f64 =
             unsafe { std::mem::transmute(callback_type_erased) };
 
-        let boxed_callback = Box::new(move |to_room: JsString, from_room: JsString| -> f64 {
+        let closure = Closure::new(move |to_room: JsString, from_room: JsString| -> f64 {
             let to_room = to_room
                 .try_into()
                 .expect("expected 'to' room name in route callback");
@@ -229,9 +218,7 @@ where
                 .expect("expected 'rom' room name in route callback");
 
             callback_lifetime_erased(to_room, from_room)
-        }) as Box<dyn FnMut(JsString, JsString) -> f64>;
-
-        let closure = Closure::wrap(boxed_callback);
+        });
 
         //
         // Create JS object and set properties.

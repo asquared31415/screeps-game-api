@@ -214,22 +214,20 @@ where
             .expect("Unable to serialize search options.")
             .unchecked_into();
 
-        let boxed_callback: Box<dyn FnMut(JsString) -> JsValue> = Box::new(move |room| {
+        let erased: &mut dyn FnMut(RoomName) -> MultiRoomCostResult = &mut self.callback;
+
+        // SAFETY: self.callback is valid for the lifetime of `self`. The callback is
+        // only used in `JsSearchOptions`, which is dropped before the end of this
+        // function call and does not hold on to the closure.
+        let lifetime_erased: &'static mut dyn FnMut(RoomName) -> MultiRoomCostResult =
+            unsafe { std::mem::transmute(erased) };
+
+        let closure = Closure::new(move |room: JsString| {
             let room = room
                 .try_into()
                 .expect("expected room name in room callback");
-            (self.callback)(room).into()
+            lifetime_erased(room).into()
         });
-
-        // SAFETY
-        //
-        // self.callback is valid during the whole lifetime of the as_js_options call,
-        // and this Box is dropped before the call finishes without the contents
-        // being held on to by JS.
-        let boxed_callback_lifetime_erased: Box<dyn 'static + FnMut(JsString) -> JsValue> =
-            unsafe { std::mem::transmute(boxed_callback) };
-
-        let closure = Closure::wrap(boxed_callback_lifetime_erased);
 
         js_options.room_callback(&closure);
 

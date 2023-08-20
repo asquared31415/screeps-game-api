@@ -1,1 +1,2 @@
 trivial-copy-size-limit = 4
+accept-comment-above-statement = true

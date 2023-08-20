@@ -634,17 +634,12 @@ where
     pub(crate) fn into_js_options<CR>(self, callback: impl Fn(&JsFindPathOptions) -> CR) -> CR {
         let mut raw_callback = self.cost_callback;
 
-        let mut owned_callback = move |room: RoomName, cost_matrix: CostMatrix| -> JsValue {
+        let mut js_val_return = move |room: RoomName, cost_matrix: CostMatrix| -> JsValue {
             raw_callback(room, cost_matrix).into()
         };
 
-        //
-        // Type erased and boxed callback: no longer a type specific to the closure
-        // passed in, now unified as &Fn
-        //
-
         let callback_type_erased: &mut (dyn FnMut(RoomName, CostMatrix) -> JsValue) =
-            &mut owned_callback;
+            &mut js_val_return;
 
         // Overwrite lifetime of reference so it can be passed to javascript.
         // It's now pretending to be static data. This should be entirely safe
@@ -653,18 +648,19 @@ where
         // above the current scope but otherwise unknown" is not a valid lifetime.
         //
 
+        // SAFETY: `self.cost_callback` is valid for the lifetime of `self`. The
+        // callback is only used in `JsFindPathOptions`, which is dropped before
+        // the end of this function call and does not hold on to the closure.
         let callback_lifetime_erased: &'static mut (dyn FnMut(RoomName, CostMatrix) -> JsValue) =
             unsafe { std::mem::transmute(callback_type_erased) };
 
-        let boxed_callback = Box::new(move |room: JsString, cost_matrix: CostMatrix| -> JsValue {
+        let closure = Closure::new(move |room: JsString, cost_matrix: CostMatrix| -> JsValue {
             let room = room
                 .try_into()
                 .expect("expected room name in cost callback");
 
             callback_lifetime_erased(room, cost_matrix)
-        }) as Box<dyn FnMut(JsString, CostMatrix) -> JsValue>;
-
-        let closure = Closure::wrap(boxed_callback);
+        });
 
         //
         // Create JS object and set properties.

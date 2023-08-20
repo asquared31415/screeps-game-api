@@ -77,11 +77,9 @@ impl LocalCostMatrix {
     // value.
     pub fn merge_from_dense(&mut self, src: &LocalCostMatrix) {
         for i in 0..ROOM_AREA {
-            let val = unsafe { *src.bits.get_unchecked(i) };
+            let val = src.bits[i];
             if val > 0 {
-                unsafe {
-                    *self.bits.get_unchecked_mut(i) = val;
-                }
+                self.bits[i] = val;
             }
         }
     }
@@ -92,6 +90,7 @@ impl LocalCostMatrix {
     // value.
     pub fn merge_from_sparse(&mut self, src: &SparseCostMatrix) {
         for (xy, val) in src.iter() {
+            // SAFETY: `xy_to_linear_index` is always in bounds of `ROOM_AREA`.
             unsafe {
                 *self.bits.get_unchecked_mut(xy_to_linear_index(xy)) = val;
             }
@@ -321,7 +320,7 @@ mod serde_impls {
             ));
         }
 
-        // SAFETY: If the length wasn't right, we would have hit the check above
+        // UNWRAP: If the length wasn't right, we would have hit the check above
         Ok(bits_slice.try_into().unwrap())
     }
 }
