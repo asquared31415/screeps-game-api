@@ -386,6 +386,9 @@ fn parse_to_coords(s: &str) -> Result<(i32, i32), ()> {
             }
         }
 
+        // `start_index` and `end_index` come from `char_indices`, so are always on a
+        // boundary.
+        #[allow(clippy::string_slice)]
         let x_coord = s[start_index..end_index].parse().map_err(|_| ())?;
 
         (x_coord, south)
@@ -394,7 +397,10 @@ fn parse_to_coords(s: &str) -> Result<(i32, i32), ()> {
     let y_coord: i32 = {
         let (start_index, _) = chars.next().ok_or(())?;
 
-        s[start_index..s.len()].parse().map_err(|_| ())?
+        // `start_index` comes from `char_indices`, so is always on a
+        // boundary.
+        #[allow(clippy::string_slice)]
+        s[start_index..].parse().map_err(|_| ())?
     };
 
     let room_x = if east { x_coord } else { -x_coord - 1 };

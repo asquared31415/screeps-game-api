@@ -70,6 +70,53 @@
 
 // #![warn(clippy::missing_const_for_fn)]
 
+// Make clippy really suck. But it has a lot of useful things like docs, API improvements, and can
+// catch more bugs.
+#![warn(clippy::pedantic)]
+// ===================
+// RESTRICTIONS
+// ===================
+// Help with `unsafe`.
+#![warn(
+    clippy::undocumented_unsafe_blocks,
+    clippy::unnecessary_safety_comment,
+    clippy::unnecessary_safety_doc
+)]
+// Types are important.
+#![warn(clippy::as_underscore)]
+// Make it more obvious when Rc/Arc are used.
+#![warn(clippy::clone_on_ref_ptr)]
+// Binary size.
+#![warn(clippy::multiple_crate_versions)]
+// Can cause panics in multibyte chars.
+#![warn(clippy::string_slice)]
+// Sort your tests.
+#![warn(clippy::tests_outside_test_module)]
+// You probaly forgot to do something.
+#![warn(clippy::todo)]
+// =================
+// CLIPPY EXCLUSIONS
+// =================
+
+// Inlining format args can cause formatting issues in many cases, notably when `target_indent +
+// str_lit.len() > wrap_width`. This formatting breaking can break more than just the target string
+// though. Minimizing string literal lengths helps to avoid this.
+#![allow(clippy::uninlined_format_args)]
+// This is not that helpful most of the time.
+#![allow(clippy::similar_names)]
+// Annoyingly lints on `_` arguments in cases where we need the type, but want to pass a value.
+#![allow(clippy::needless_pass_by_value)]
+// FIXME: add these docs.
+#![allow(clippy::missing_errors_doc, clippy::missing_panics_doc)]
+// FIXME: we only target one specific target, issues with floats, etc
+#![allow(
+    clippy::cast_possible_truncation,
+    clippy::cast_sign_loss,
+    clippy::cast_possible_wrap
+)]
+// TODO: idk
+#![allow(clippy::module_name_repetitions)]
+
 pub mod console;
 pub mod constants;
 pub mod enums;
