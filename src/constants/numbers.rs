@@ -291,6 +291,8 @@ pub const fn controller_levels(current_rcl: u32) -> Option<u32> {
 #[inline]
 #[must_use]
 pub const fn controller_downgrade(rcl: u8) -> Option<u32> {
+    // To be explicit about each level
+    #[allow(clippy::match_same_arms)]
     match rcl {
         1 => Some(20_000),
         2 => Some(10_000),
@@ -539,6 +541,8 @@ pub const MINERAL_REGEN_TIME: u32 = 50_000;
 #[inline]
 #[must_use]
 pub const fn mineral_min_amount(mineral: ResourceType) -> Option<u32> {
+    // To be explicit about each resource to match the constant
+    #[allow(clippy::match_same_arms)]
     match mineral {
         ResourceType::Hydrogen => Some(35_000),
         ResourceType::Oxygen => Some(35_000),

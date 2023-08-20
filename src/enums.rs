@@ -629,25 +629,25 @@ impl StructureObject {
         match self {
             Self::StructureSpawn(s) => Some(s),
             Self::StructureExtension(s) => Some(s),
-            Self::StructureRoad(_) => None,
-            Self::StructureWall(_) => None,
             Self::StructureRampart(s) => Some(s),
             Self::StructureKeeperLair(s) => Some(s),
-            Self::StructurePortal(_) => None,
             Self::StructureController(s) => Some(s),
             Self::StructureLink(s) => Some(s),
             Self::StructureStorage(s) => Some(s),
             Self::StructureTower(s) => Some(s),
             Self::StructureObserver(s) => Some(s),
-            Self::StructurePowerBank(_) => None,
             Self::StructurePowerSpawn(s) => Some(s),
             Self::StructureExtractor(s) => Some(s),
             Self::StructureLab(s) => Some(s),
             Self::StructureTerminal(s) => Some(s),
-            Self::StructureContainer(_) => None,
             Self::StructureNuker(s) => Some(s),
             Self::StructureFactory(s) => Some(s),
             Self::StructureInvaderCore(s) => Some(s),
+            Self::StructureRoad(_)
+            | Self::StructureWall(_)
+            | Self::StructurePortal(_)
+            | Self::StructurePowerBank(_)
+            | Self::StructureContainer(_) => None,
         }
     }
 
@@ -656,25 +656,25 @@ impl StructureObject {
         match self {
             Self::StructureSpawn(s) => Some(s),
             Self::StructureExtension(s) => Some(s),
-            Self::StructureRoad(_) => None,
-            Self::StructureWall(_) => None,
-            Self::StructureRampart(_) => None,
-            Self::StructureKeeperLair(_) => None,
-            Self::StructurePortal(_) => None,
-            Self::StructureController(_) => None,
             Self::StructureLink(s) => Some(s),
             Self::StructureStorage(s) => Some(s),
             Self::StructureTower(s) => Some(s),
-            Self::StructureObserver(_) => None,
-            Self::StructurePowerBank(_) => None,
             Self::StructurePowerSpawn(s) => Some(s),
-            Self::StructureExtractor(_) => None,
             Self::StructureLab(s) => Some(s),
             Self::StructureTerminal(s) => Some(s),
             Self::StructureContainer(s) => Some(s),
             Self::StructureNuker(s) => Some(s),
             Self::StructureFactory(s) => Some(s),
-            Self::StructureInvaderCore(_) => None,
+            Self::StructureRoad(_)
+            | Self::StructureWall(_)
+            | Self::StructureRampart(_)
+            | Self::StructureKeeperLair(_)
+            | Self::StructurePortal(_)
+            | Self::StructureController(_)
+            | Self::StructureObserver(_)
+            | Self::StructurePowerBank(_)
+            | Self::StructureExtractor(_)
+            | Self::StructureInvaderCore(_) => None,
         }
     }
 
@@ -683,25 +683,25 @@ impl StructureObject {
         match self {
             Self::StructureSpawn(s) => Some(s),
             Self::StructureExtension(s) => Some(s),
-            Self::StructureRoad(_) => None,
-            Self::StructureWall(_) => None,
-            Self::StructureRampart(_) => None,
-            Self::StructureKeeperLair(_) => None,
-            Self::StructurePortal(_) => None,
-            Self::StructureController(_) => None,
             Self::StructureLink(s) => Some(s),
             Self::StructureStorage(s) => Some(s),
             Self::StructureTower(s) => Some(s),
-            Self::StructureObserver(_) => None,
-            Self::StructurePowerBank(_) => None,
             Self::StructurePowerSpawn(s) => Some(s),
-            Self::StructureExtractor(_) => None,
             Self::StructureLab(s) => Some(s),
             Self::StructureTerminal(s) => Some(s),
             Self::StructureContainer(s) => Some(s),
             Self::StructureNuker(s) => Some(s),
             Self::StructureFactory(s) => Some(s),
-            Self::StructureInvaderCore(_) => None,
+            Self::StructureExtractor(_)
+            | Self::StructureObserver(_)
+            | Self::StructurePowerBank(_)
+            | Self::StructureRoad(_)
+            | Self::StructureWall(_)
+            | Self::StructureRampart(_)
+            | Self::StructureKeeperLair(_)
+            | Self::StructurePortal(_)
+            | Self::StructureController(_)
+            | Self::StructureInvaderCore(_) => None,
         }
     }
 
@@ -710,25 +710,25 @@ impl StructureObject {
         match self {
             Self::StructureSpawn(s) => Some(s),
             Self::StructureExtension(s) => Some(s),
-            Self::StructureRoad(_) => None,
-            Self::StructureWall(_) => None,
-            Self::StructureRampart(_) => None,
-            Self::StructureKeeperLair(_) => None,
-            Self::StructurePortal(_) => None,
-            Self::StructureController(_) => None,
             Self::StructureLink(s) => Some(s),
             Self::StructureStorage(s) => Some(s),
             Self::StructureTower(s) => Some(s),
-            Self::StructureObserver(_) => None,
-            Self::StructurePowerBank(_) => None,
             Self::StructurePowerSpawn(s) => Some(s),
-            Self::StructureExtractor(_) => None,
             Self::StructureLab(s) => Some(s),
             Self::StructureTerminal(s) => Some(s),
             Self::StructureContainer(s) => Some(s),
-            Self::StructureNuker(_) => None,
             Self::StructureFactory(s) => Some(s),
-            Self::StructureInvaderCore(_) => None,
+            Self::StructureExtractor(_)
+            | Self::StructureNuker(_)
+            | Self::StructureRoad(_)
+            | Self::StructureWall(_)
+            | Self::StructureRampart(_)
+            | Self::StructureKeeperLair(_)
+            | Self::StructurePortal(_)
+            | Self::StructureController(_)
+            | Self::StructureInvaderCore(_)
+            | Self::StructureObserver(_)
+            | Self::StructurePowerBank(_) => None,
         }
     }
 
@@ -741,8 +741,6 @@ impl StructureObject {
             Self::StructureWall(s) => Some(s),
             Self::StructureRampart(s) => Some(s),
             Self::StructureKeeperLair(s) => Some(s),
-            Self::StructurePortal(_) => None,
-            Self::StructureController(_) => None,
             Self::StructureLink(s) => Some(s),
             Self::StructureStorage(s) => Some(s),
             Self::StructureTower(s) => Some(s),
@@ -756,6 +754,7 @@ impl StructureObject {
             Self::StructureNuker(s) => Some(s),
             Self::StructureFactory(s) => Some(s),
             Self::StructureInvaderCore(s) => Some(s),
+            Self::StructurePortal(_) | Self::StructureController(_) => None,
         }
     }
 
@@ -767,9 +766,6 @@ impl StructureObject {
             Self::StructureRoad(s) => Some(s),
             Self::StructureWall(s) => Some(s),
             Self::StructureRampart(s) => Some(s),
-            Self::StructureKeeperLair(_) => None,
-            Self::StructurePortal(_) => None,
-            Self::StructureController(_) => None,
             Self::StructureLink(s) => Some(s),
             Self::StructureStorage(s) => Some(s),
             Self::StructureTower(s) => Some(s),
@@ -782,7 +778,10 @@ impl StructureObject {
             Self::StructureContainer(s) => Some(s),
             Self::StructureNuker(s) => Some(s),
             Self::StructureFactory(s) => Some(s),
-            Self::StructureInvaderCore(_) => None,
+            Self::StructureKeeperLair(_)
+            | Self::StructurePortal(_)
+            | Self::StructureController(_)
+            | Self::StructureInvaderCore(_) => None,
         }
     }
 }

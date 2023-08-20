@@ -67,6 +67,8 @@ impl StructureType {
         #[allow(clippy::enum_glob_use)] // local import
         use self::StructureType::*;
 
+        // To be explicit about each structure
+        #[allow(clippy::match_same_arms)]
         let cost = match self {
             Spawn => 15_000,
             Extension => 3_000,
@@ -96,6 +98,8 @@ impl StructureType {
         #[allow(clippy::enum_glob_use)] // local import
         use self::StructureType::*;
 
+        // To be explicit about each structure
+        #[allow(clippy::match_same_arms)]
         match self {
             Spawn => match current_rcl {
                 0 => 0,

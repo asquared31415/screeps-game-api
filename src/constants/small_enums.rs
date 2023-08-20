@@ -303,6 +303,8 @@ impl Terrain {
     // not the best approach but for now it's something
     #[must_use]
     pub fn from_look_constant_str(terrain_look_str: &str) -> Self {
+        // Explicit fallback
+        #[allow(clippy::match_same_arms)]
         match terrain_look_str {
             "wall" => Terrain::Wall,
             "swamp" => Terrain::Swamp,
@@ -337,6 +339,8 @@ impl Part {
     #[inline]
     #[must_use]
     pub const fn cost(self) -> u32 {
+        // To be explicit about each part
+        #[allow(clippy::match_same_arms)]
         match self {
             Part::Move => 50,
             Part::Work => 100,

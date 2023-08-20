@@ -105,6 +105,8 @@ impl ResourceType {
     pub const fn reaction_time(self) -> Option<u32> {
         #[allow(clippy::enum_glob_use)] // local import
         use ResourceType::*;
+        // To be explicit about each resource
+        #[allow(clippy::match_same_arms)]
         let time = match self {
             // these comments copied directly from JavaScript 'constants.js' file.
             // OH: 20,
