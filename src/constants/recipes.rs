@@ -183,6 +183,9 @@ impl ResourceType {
 
     /// Translates the `COMMODITIES` constant to recipes that can be used by a
     /// factory to make each commodity
+    // FIXME: Lazy/similar static instead, this should not be doing any creating things, it's
+    // constant data.
+    #[allow(clippy::too_many_lines)]
     #[must_use]
     pub fn commodity_recipe(self) -> Option<FactoryRecipe> {
         #[allow(clippy::enum_glob_use)] // local import
