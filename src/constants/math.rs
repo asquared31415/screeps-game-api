@@ -14,7 +14,7 @@ use crate::constants::*;
 /// [Code reference](https://github.com/screeps/engine/blob/6d498f2f0db4e0744fa6bf8563836d36b49b6a29/src/game/game.js#L117)
 #[must_use]
 pub fn control_points_for_gcl(level: u32) -> f64 {
-    ((level - 1) as f64).powf(GCL_POW) * GCL_MULTIPLY as f64
+    f64::from(level - 1).powf(GCL_POW) * f64::from(GCL_MULTIPLY)
 }
 
 /// Provides the total number of processed power needed to achieve a given

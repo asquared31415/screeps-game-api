@@ -131,8 +131,8 @@ impl Position {
     #[must_use]
     pub fn is_near_to(self, target: Position) -> bool {
         self.room_name() == target.room_name()
-            && (u8::from(self.x()) as i32 - u8::from(target.x()) as i32).abs() <= 1
-            && (u8::from(self.y()) as i32 - u8::from(target.y()) as i32).abs() <= 1
+            && (i32::from(u8::from(self.x())) - i32::from(u8::from(target.x()))).abs() <= 1
+            && (i32::from(u8::from(self.y())) - i32::from(u8::from(target.y()))).abs() <= 1
     }
 }
 

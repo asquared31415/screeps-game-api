@@ -296,8 +296,8 @@ impl Position {
     pub fn from_packed(packed: u32) -> Self {
         let x = packed >> 8 & 0xFF;
         let y = packed & 0xFF;
-        assert!(x < ROOM_SIZE as u32, "out of bounds x: {x}");
-        assert!(y < ROOM_SIZE as u32, "out of bounds y: {y}");
+        assert!(x < u32::from(ROOM_SIZE), "out of bounds x: {x}");
+        assert!(y < u32::from(ROOM_SIZE), "out of bounds y: {y}");
         Position { packed }
     }
 
@@ -349,17 +349,17 @@ impl Position {
 
     #[inline]
     pub fn set_x(&mut self, x: RoomCoordinate) {
-        self.packed = (self.packed & !(0xFF << 8)) | ((u8::from(x) as u32) << 8);
+        self.packed = (self.packed & !(0xFF << 8)) | (u32::from(u8::from(x)) << 8);
     }
 
     #[inline]
     pub fn set_y(&mut self, y: RoomCoordinate) {
-        self.packed = (self.packed & !0xFF) | (u8::from(y) as u32);
+        self.packed = (self.packed & !0xFF) | u32::from(u8::from(y));
     }
 
     #[inline]
     pub fn set_room_name(&mut self, room_name: RoomName) {
-        let room_repr_packed = room_name.packed_repr() as u32;
+        let room_repr_packed = u32::from(room_name.packed_repr());
         self.packed = (self.packed & 0xFFFF) | (room_repr_packed << 16);
     }
 

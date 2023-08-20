@@ -627,7 +627,7 @@ impl JsCollectionFromValue for PowerType {
 
 impl JsCollectionIntoValue for PowerType {
     fn into_value(self) -> JsValue {
-        JsValue::from_f64(self as u32 as f64)
+        JsValue::from_f64(f64::from(self as u32))
     }
 }
 

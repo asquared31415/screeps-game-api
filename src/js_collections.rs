@@ -297,7 +297,7 @@ impl JsCollectionFromValue for String {
 
 impl JsCollectionIntoValue for u8 {
     fn into_value(self) -> JsValue {
-        JsValue::from_f64(self as f64)
+        JsValue::from_f64(f64::from(self))
     }
 }
 

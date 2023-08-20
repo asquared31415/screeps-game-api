@@ -90,7 +90,7 @@ pub fn set(val: &JsString) {
 pub fn set_active_segments(segment_ids: &[u8]) {
     let segment_ids: Array = segment_ids
         .iter()
-        .map(|s| *s as f64)
+        .map(|s| f64::from(*s))
         .map(JsValue::from_f64)
         .collect();
 

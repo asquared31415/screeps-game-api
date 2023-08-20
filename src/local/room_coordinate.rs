@@ -171,7 +171,7 @@ impl Serialize for RoomXY {
             ReadableXY::from(*self).serialize(serializer)
         } else {
             let xy: (u8, u8) = (*self).into();
-            let packed: u16 = ((xy.0 as u16) << 8) | (xy.1 as u16);
+            let packed: u16 = (u16::from(xy.0) << 8) | u16::from(xy.1);
             packed.serialize(serializer)
         }
     }
@@ -189,7 +189,7 @@ impl<'de> Deserialize<'de> for RoomXY {
             let xy = (((packed >> 8) & 0xFF) as u8, (packed & 0xFF) as u8);
             RoomXY::try_from(xy).map_err(|err: OutOfBoundsError| {
                 de::Error::invalid_value(
-                    de::Unexpected::Unsigned(err.0 as u64),
+                    de::Unexpected::Unsigned(u64::from(err.0)),
                     &format!("a non-negative integer less-than {ROOM_SIZE}").as_str(),
                 )
             })

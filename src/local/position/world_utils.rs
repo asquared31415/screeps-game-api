@@ -10,7 +10,7 @@ impl Position {
     #[inline]
     #[must_use]
     pub fn world_x(self) -> i32 {
-        self.room_x() * 50 + (u8::from(self.x()) as i32)
+        self.room_x() * 50 + i32::from(u8::from(self.x()))
     }
 
     /// Returns this position's vertical "world coordinate".
@@ -20,7 +20,7 @@ impl Position {
     #[inline]
     #[must_use]
     pub fn world_y(self) -> i32 {
-        self.room_y() * 50 + (u8::from(self.y()) as i32)
+        self.room_y() * 50 + i32::from(u8::from(self.y()))
     }
 
     /// Returns this position's "world coordinates".
