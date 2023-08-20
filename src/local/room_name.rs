@@ -170,6 +170,7 @@ impl RoomName {
     ///
     /// For a panicking variant of this function, use the implementation of
     /// [`ops::Add`] for `(i32, i32)`.
+    #[must_use]
     pub fn checked_add(&self, offset: (i32, i32)) -> Option<RoomName> {
         let (x1, y1) = (self.x_coord(), self.y_coord());
         let (x2, y2) = offset;
@@ -182,6 +183,7 @@ impl RoomName {
     ///
     /// This is equivalent to [`ToString::to_string`], but involves no
     /// allocation.
+    #[must_use]
     pub fn to_array_string(&self) -> ArrayString<8> {
         let mut res = ArrayString::new();
         write!(res, "{self}").expect("expected ArrayString write to be infallible");

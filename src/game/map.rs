@@ -48,6 +48,7 @@ extern "C" {
 /// room names as values.
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.map.describeExits)
+#[must_use]
 pub fn describe_exits(room_name: RoomName) -> JsHashMap<Direction, RoomName> {
     let room_name = room_name.into();
 
@@ -59,6 +60,7 @@ pub fn describe_exits(room_name: RoomName) -> JsHashMap<Direction, RoomName> {
 /// wrap around, which is used for terminal calculations.
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.map.getRoomLinearDistance)
+#[must_use]
 pub fn get_room_linear_distance(from_room: RoomName, to_room: RoomName, continuous: bool) -> u32 {
     let from_room = from_room.into();
     let to_room = to_room.into();
@@ -70,6 +72,7 @@ pub fn get_room_linear_distance(from_room: RoomName, to_room: RoomName, continuo
 /// vision in.
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.map.getRoomTerrain)
+#[must_use]
 pub fn get_room_terrain(room_name: RoomName) -> RoomTerrain {
     let name = room_name.into();
 
@@ -79,6 +82,7 @@ pub fn get_room_terrain(room_name: RoomName) -> RoomTerrain {
 /// Get the size of the world map.
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.map.getWorldSize)
+#[must_use]
 pub fn get_world_size() -> u32 {
     Map::get_world_size()
 }
@@ -101,10 +105,12 @@ pub struct RoomStatusResult {
 }
 
 impl RoomStatusResult {
+    #[must_use]
     pub fn status(&self) -> RoomStatus {
         self.status
     }
 
+    #[must_use]
     pub fn timestamp(&self) -> Option<f64> {
         self.timestamp
     }
@@ -167,6 +173,7 @@ extern "C" {
 }
 
 impl JsFindRouteOptions {
+    #[must_use]
     pub fn new() -> JsFindRouteOptions {
         Object::new().unchecked_into()
     }
@@ -252,6 +259,7 @@ impl Default for FindRouteOptions<fn(RoomName, RoomName) -> f64> {
 
 impl FindRouteOptions<fn(RoomName, RoomName) -> f64> {
     #[inline]
+    #[must_use]
     pub fn new() -> Self {
         Self::default()
     }

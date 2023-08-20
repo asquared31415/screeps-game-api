@@ -92,6 +92,7 @@ extern "C" {
 }
 
 impl JsSearchOptions {
+    #[must_use]
     pub fn new() -> JsSearchOptions {
         Object::new().unchecked_into()
     }
@@ -128,6 +129,7 @@ extern "C" {
 }
 
 impl SearchResults {
+    #[must_use]
     pub fn path(&self) -> Vec<Position> {
         self.path_internal()
             .iter()
@@ -136,6 +138,7 @@ impl SearchResults {
             .collect()
     }
 
+    #[must_use]
     pub fn opaque_path(&self) -> Array {
         self.path_internal()
     }
@@ -181,6 +184,7 @@ impl From<SingleRoomCostResult> for JsValue {
     }
 }
 
+#[must_use]
 pub struct SearchOptions<F>
 where
     F: FnMut(RoomName) -> MultiRoomCostResult,
@@ -326,6 +330,7 @@ pub struct SearchGoal {
 }
 
 impl SearchGoal {
+    #[must_use]
     pub fn new(pos: Position, range: u32) -> Self {
         SearchGoal { pos, range }
     }
@@ -334,11 +339,13 @@ impl SearchGoal {
 #[wasm_bindgen]
 impl SearchGoal {
     #[wasm_bindgen(getter)]
+    #[must_use]
     pub fn pos(&self) -> RoomPosition {
         self.pos.into()
     }
 
     #[wasm_bindgen(getter)]
+    #[must_use]
     pub fn range(&self) -> u32 {
         self.range
     }

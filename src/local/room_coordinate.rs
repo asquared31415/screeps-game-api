@@ -18,11 +18,13 @@ impl fmt::Display for OutOfBoundsError {
 impl Error for OutOfBoundsError {}
 
 #[inline]
+#[must_use]
 pub const fn xy_to_linear_index(xy: RoomXY) -> usize {
     ((xy.x.0 as usize) * (ROOM_SIZE as usize)) + (xy.y.0 as usize)
 }
 
 #[inline]
+#[must_use]
 pub fn linear_index_to_xy(idx: usize) -> RoomXY {
     assert!(idx < ROOM_AREA, "Out of bounds index: {idx}");
     // SAFETY: bounds checking above ensures both are within range.
@@ -52,6 +54,7 @@ impl RoomCoordinate {
     /// Calling this method with `coord >= ROOM_SIZE` can result in undefined
     /// behaviour when the resulting `RoomCoordinate` is used.
     #[inline]
+    #[must_use]
     pub unsafe fn unchecked_new(coord: u8) -> Self {
         debug_assert!(
             coord < ROOM_SIZE,
@@ -60,6 +63,7 @@ impl RoomCoordinate {
         RoomCoordinate(coord)
     }
 
+    #[must_use]
     pub const fn u8(self) -> u8 {
         self.0
     }
@@ -82,6 +86,7 @@ impl RoomXY {
     /// Calling this method with `x >= ROOM_SIZE` or `y >= ROOM_SIZE` can result
     /// in undefined behaviour when the resulting `RoomXY` is used.
     #[inline]
+    #[must_use]
     pub unsafe fn unchecked_new(x: u8, y: u8) -> Self {
         RoomXY {
             x: RoomCoordinate::unchecked_new(x),

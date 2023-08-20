@@ -8,6 +8,7 @@ impl Position {
     /// The value is equal to `50 * room_x + x`, where `room_x` is defined as
     /// `room_x = -xx - 1` for `Wxx` rooms and as `room_x = xx` for `Exx` rooms.
     #[inline]
+    #[must_use]
     pub fn world_x(self) -> i32 {
         self.room_x() * 50 + (u8::from(self.x()) as i32)
     }
@@ -17,6 +18,7 @@ impl Position {
     /// The value is equal to `50 * room_y + y`, where `room_y` is defined as
     /// `room_y = -yy - 1` for `Nyy` rooms and as `room_y = yy` for `Syy` rooms.
     #[inline]
+    #[must_use]
     pub fn world_y(self) -> i32 {
         self.room_y() * 50 + (u8::from(self.y()) as i32)
     }
@@ -34,6 +36,7 @@ impl Position {
     /// See also [`Position::world_x`] and
     /// [`Position::world_y`].
     #[inline]
+    #[must_use]
     pub fn world_coords(self) -> (i32, i32) {
         (self.world_x(), self.world_y())
     }
@@ -50,6 +53,7 @@ impl Position {
     /// See [`Position::world_coords`].
     #[inline]
     #[track_caller]
+    #[must_use]
     pub fn from_world_coords(x: i32, y: i32) -> Self {
         Self::checked_from_world_coords(x, y).unwrap()
     }

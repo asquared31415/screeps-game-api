@@ -117,6 +117,7 @@ pub struct OwnedArrayIter<T> {
 }
 
 impl<T> OwnedArrayIter<T> {
+    #[must_use]
     pub fn new(array: Array) -> Self {
         OwnedArrayIter {
             range: 0..array.length(),
@@ -220,6 +221,7 @@ impl<T> JsObjectId<T> {
     /// This will allow changing to any type - `JsObjectId` makes no guarantees
     /// about its ID matching the type of any object in the game that it
     /// actually points to.
+    #[must_use]
     pub fn into_type<U>(self) -> JsObjectId<U> {
         JsObjectId {
             raw: self.raw,
@@ -234,6 +236,7 @@ impl<T> JsObjectId<T> {
     ///
     /// Will return `None` if this object no longer exists, or is in a room we
     /// don't have vision for.
+    #[must_use]
     pub fn resolve(&self) -> Option<T>
     where
         T: Resolvable,

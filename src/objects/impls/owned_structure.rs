@@ -56,6 +56,7 @@ extern "C" {
 
 impl Owner {
     /// The name of the player that owns this object.
+    #[must_use]
     pub fn username(&self) -> String {
         Self::username_internal(self).into()
     }

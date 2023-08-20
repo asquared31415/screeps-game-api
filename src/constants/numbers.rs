@@ -115,6 +115,7 @@ pub const RAMPART_HITS_MAX_RCL8: u32 = 300_000_000;
 /// Translates the `RAMPART_HITS_MAX` constant, the maximum rampart hits for a
 /// given room control level.
 #[inline]
+#[must_use]
 pub const fn rampart_hits_max(rcl: u32) -> u32 {
     match rcl {
         r if r < 2 => 0,
@@ -192,6 +193,7 @@ pub const EXTENSION_HITS: u32 = 1000;
 /// Translates the `EXTENSION_ENERGY_CAPACITY` constant, the energy capacity of
 /// each source structure at a given room control level.
 #[inline]
+#[must_use]
 pub const fn extension_energy_capacity(rcl: u32) -> u32 {
     match rcl {
         r if r < 7 => 50,
@@ -259,6 +261,7 @@ pub const CONSTRUCTION_COST_ROAD_WALL_RATIO: u32 = 150;
 ///
 /// Returns `Some` for levels 1-7, `None` for all others.
 #[inline]
+#[must_use]
 pub const fn controller_levels(current_rcl: u32) -> Option<u32> {
     match current_rcl {
         1 => Some(200),
@@ -286,6 +289,7 @@ pub const fn controller_levels(current_rcl: u32) -> Option<u32> {
 /// [`StructureController::ticks_to_downgrade`]:
 /// crate::objects::StructureController::ticks_to_downgrade
 #[inline]
+#[must_use]
 pub const fn controller_downgrade(rcl: u8) -> Option<u32> {
     match rcl {
         1 => Some(20_000),
@@ -533,6 +537,7 @@ pub const MINERAL_REGEN_TIME: u32 = 50_000;
 ///
 /// [`Density::amount`]: crate::constants::Density::amount
 #[inline]
+#[must_use]
 pub const fn mineral_min_amount(mineral: ResourceType) -> Option<u32> {
     match mineral {
         ResourceType::Hydrogen => Some(35_000),
@@ -648,6 +653,7 @@ pub const RUIN_DECAY: u32 = 500;
 /// Structures with special rules for their ruins' ticks to live, currently only
 /// power banks.
 #[inline]
+#[must_use]
 pub const fn ruin_decay_structures(structure_type: StructureType) -> Option<u32> {
     match structure_type {
         StructureType::PowerBank => Some(10),
@@ -773,6 +779,7 @@ pub const INVADER_CORE_HITS: u32 = 100_000;
 /// Ticks per body part that invader cores of each level take to spawn defensive
 /// creeps.
 #[inline]
+#[must_use]
 pub const fn invader_core_creep_spawn_time(core_level: u32) -> Option<u32> {
     match core_level {
         1 => Some(0),
@@ -787,6 +794,7 @@ pub const fn invader_core_creep_spawn_time(core_level: u32) -> Option<u32> {
 /// Ticks between creation of invader cores in rooms in the sector for each
 /// level of stronghold.
 #[inline]
+#[must_use]
 pub const fn invader_core_expand_time(core_level: u32) -> Option<u32> {
     match core_level {
         1 => Some(4000),
@@ -808,6 +816,7 @@ pub const INVADER_CORE_CONTROLLER_DOWNGRADE: u32 = 5000;
 
 /// Rampart hits for each level of stronghold.
 #[inline]
+#[must_use]
 pub const fn stronghold_rampart_hits(core_level: u32) -> Option<u32> {
     match core_level {
         1 => Some(100_000),

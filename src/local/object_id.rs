@@ -123,6 +123,7 @@ impl<T> ObjectId<T> {
     /// This will allow changing to any type - `ObjectId` makes no guarantees
     /// about its ID matching the type of any object in the game that it
     /// actually points to.
+    #[must_use]
     pub fn into_type<U>(self) -> ObjectId<U> {
         RawObjectId::from(self).into()
     }
@@ -133,6 +134,7 @@ impl<T> ObjectId<T> {
     /// digits in the object id.
     ///
     /// See also [`RawObjectId::from_packed`].
+    #[must_use]
     pub fn from_packed(packed: u128) -> Self {
         RawObjectId::from_packed(packed).into()
     }
@@ -144,6 +146,7 @@ impl<T> ObjectId<T> {
     ///
     /// The returned number will be less than or equal to `2^96 - 1`, as that's
     /// the maximum value that `RawObjectId` can hold.
+    #[must_use]
     pub fn to_u128(self) -> u128 {
         self.raw.into()
     }
@@ -154,6 +157,7 @@ impl<T> ObjectId<T> {
     /// allocation.
     ///
     /// See also [`RawObjectId::to_array_string`].
+    #[must_use]
     pub fn to_array_string(&self) -> ArrayString<24> {
         self.raw.to_array_string()
     }
@@ -188,6 +192,7 @@ impl<T> ObjectId<T> {
     ///
     /// Will return `None` if this object no longer exists, or is in a room we
     /// don't have vision for.
+    #[must_use]
     pub fn resolve(self) -> Option<T>
     where
         T: Resolvable,

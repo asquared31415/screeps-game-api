@@ -51,6 +51,7 @@ extern "C" {
 /// [`JsString`] form as values.
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#RawMemory.segments)
+#[must_use]
 pub fn segments() -> JsHashMap<u8, String> {
     RawMemory::segments().into()
 }
@@ -59,6 +60,7 @@ pub fn segments() -> JsHashMap<u8, String> {
 /// last tick.
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#RawMemory.foreignSegment)
+#[must_use]
 pub fn foreign_segment() -> Option<ForeignSegment> {
     RawMemory::foreign_segment()
 }
@@ -66,6 +68,7 @@ pub fn foreign_segment() -> Option<ForeignSegment> {
 /// Get the stored serialized memory as a [`JsString`].
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#RawMemory.get)
+#[must_use]
 pub fn get() -> JsString {
     RawMemory::get()
 }

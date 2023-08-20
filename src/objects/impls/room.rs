@@ -195,12 +195,14 @@ extern "C" {
 }
 
 impl Room {
+    #[must_use]
     pub fn name(&self) -> RoomName {
         self.name_internal()
             .try_into()
             .expect("expected parseable room name")
     }
 
+    #[must_use]
     pub fn serialize_path(path: &[Step]) -> String {
         Self::serialize_path_internal(
             serde_wasm_bindgen::to_value(path)
@@ -210,6 +212,7 @@ impl Room {
         .into()
     }
 
+    #[must_use]
     pub fn deserialize_path(path: &str) -> Vec<Step> {
         serde_wasm_bindgen::from_value(
             Self::deserialize_path_internal(&JsString::from(path)).unchecked_into(),
@@ -217,6 +220,7 @@ impl Room {
         .expect("invalid deserialized path")
     }
 
+    #[must_use]
     pub fn visual(&self) -> RoomVisual {
         RoomVisual::new(Some(self.name()))
     }
@@ -306,10 +310,12 @@ impl Room {
         }
     }
 
+    #[must_use]
     pub fn get_event_log(&self) -> Vec<Event> {
         serde_json::from_str(&self.get_event_log_raw()).expect("Malformed Event Log")
     }
 
+    #[must_use]
     pub fn get_event_log_raw(&self) -> String {
         let js_log: JsString = Room::get_event_log_internal(self, true).into();
         js_log.into()
@@ -338,6 +344,7 @@ impl Room {
     /// Get all objects in a certain area.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#Room.lookAtArea)
+    #[must_use]
     pub fn look_at_area(
         &self,
         top_y: u8,
@@ -469,6 +476,7 @@ extern "C" {
 }
 
 impl JsFindPathOptions {
+    #[must_use]
     pub fn new() -> JsFindPathOptions {
         Object::new().unchecked_into()
     }
@@ -480,6 +488,7 @@ impl Default for JsFindPathOptions {
     }
 }
 
+#[must_use]
 pub struct FindPathOptions<F, R>
 where
     F: FnMut(RoomName, CostMatrix) -> R,

@@ -50,6 +50,7 @@ extern "C" {
 }
 
 /// Your assigned CPU for the current shard.
+#[must_use]
 pub fn limit() -> u32 {
     Cpu::limit()
 }
@@ -59,11 +60,13 @@ pub fn limit() -> u32 {
 /// 500 ([`CPU_TICK_LIMIT_MAX`]); [`f64::INFINITY`] on sim.
 ///
 /// [`CPU_TICK_LIMIT_MAX`]: crate::constants::extra::CPU_TICK_LIMIT_MAX
+#[must_use]
 pub fn tick_limit() -> f64 {
     Cpu::tick_limit()
 }
 
 /// The amount of CPU that has accumulated in your bucket.
+#[must_use]
 pub fn bucket() -> i32 {
     Cpu::bucket()
 }
@@ -71,17 +74,20 @@ pub fn bucket() -> i32 {
 /// Your assigned CPU limits for each shard in an [`Object`], with shard
 /// names in [`JsString`] form as keys and numbers as values. This is the
 /// same format accepted by [`set_shard_limits`].
+#[must_use]
 pub fn shard_limits() -> JsHashMap<JsString, u32> {
     Cpu::shard_limits().into()
 }
 
 /// Whether your account is unlocked to have full CPU.
+#[must_use]
 pub fn unlocked() -> bool {
     Cpu::unlocked()
 }
 
 /// If your account has been unlocked for a limited time, contains the time
 /// it's unlocked until in milliseconds since epoch.
+#[must_use]
 pub fn unlocked_time() -> Option<u64> {
     Cpu::unlocked_time()
 }
@@ -89,6 +95,7 @@ pub fn unlocked_time() -> Option<u64> {
 /// Get information about your script's memory heap usage.
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.cpu.getHeapStatistics)
+#[must_use]
 pub fn get_heap_statistics() -> HeapStatistics {
     Cpu::get_heap_statistics()
 }
@@ -96,6 +103,7 @@ pub fn get_heap_statistics() -> HeapStatistics {
 /// Get the amount of CPU time used for execution so far this tick.
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.cpu.getUsed)
+#[must_use]
 pub fn get_used() -> f64 {
     Cpu::get_used()
 }

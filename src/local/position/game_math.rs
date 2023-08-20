@@ -11,6 +11,7 @@ impl Position {
     /// `TopLeft`/`TopRight`/`BottomLeft`/`BottomRight` by the magnitude in both
     /// directions. For instance, [`Direction::Top`] can be returned even
     /// if the target has a slightly different `x` coordinate.
+    #[must_use]
     pub fn get_direction_to(self, target: Position) -> Option<Direction> {
         // Logic copied from https://github.com/screeps/engine/blob/020ba168a1fde9a8072f9f1c329d5c0be8b440d7/src/utils.js#L73-L107
         let (dx, dy) = target - self;
@@ -64,6 +65,7 @@ impl Position {
     /// ```
     #[doc(alias = "distance")]
     #[inline]
+    #[must_use]
     pub fn get_range_to(self, target: Position) -> u32 {
         let (dx, dy) = self - target;
         dx.abs().max(dy.abs()) as u32
@@ -109,6 +111,7 @@ impl Position {
     /// ```
     #[doc(alias = "distance")]
     #[inline]
+    #[must_use]
     pub fn in_range_to(self, target: Position, range: u32) -> bool {
         self.get_range_to(target) <= range
     }
@@ -117,6 +120,7 @@ impl Position {
     ///
     /// Note that this is equivalent to `this_pos == target.pos()`.
     #[inline]
+    #[must_use]
     pub fn is_equal_to(self, target: Position) -> bool {
         self == target
     }
@@ -124,6 +128,7 @@ impl Position {
     /// True if this position is in the same room as the target, and the range
     /// is at most 1.
     #[inline]
+    #[must_use]
     pub fn is_near_to(self, target: Position) -> bool {
         self.room_name() == target.room_name()
             && (u8::from(self.x()) as i32 - u8::from(target.x()) as i32).abs() <= 1

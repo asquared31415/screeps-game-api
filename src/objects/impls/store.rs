@@ -40,6 +40,7 @@ extern "C" {
 }
 
 impl Store {
+    #[must_use]
     pub fn store_types(&self) -> Vec<ResourceType> {
         Object::keys(self.unchecked_ref())
             .iter()
@@ -47,14 +48,17 @@ impl Store {
             .collect()
     }
 
+    #[must_use]
     pub fn get_capacity(&self, ty: Option<ResourceType>) -> u32 {
         self.get_capacity_internal(ty).unwrap_or(0)
     }
 
+    #[must_use]
     pub fn get_free_capacity(&self, ty: Option<ResourceType>) -> i32 {
         self.get_free_capacity_internal(ty).unwrap_or(0)
     }
 
+    #[must_use]
     pub fn get_used_capacity(&self, ty: Option<ResourceType>) -> u32 {
         self.get_used_capacity_internal(ty).unwrap_or(0)
     }

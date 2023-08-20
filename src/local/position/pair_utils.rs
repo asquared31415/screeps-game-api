@@ -19,6 +19,7 @@ impl Position {
     /// Returns this position's in-room coordinates as a pair of unsigned
     /// integers.
     #[inline]
+    #[must_use]
     pub fn coords(&self) -> (u8, u8) {
         (self.x().into(), self.y().into())
     }
@@ -26,6 +27,7 @@ impl Position {
     /// Returns this position's in-room coordinates as a pair of signed
     /// integers.
     #[inline]
+    #[must_use]
     pub fn coords_signed(&self) -> (i8, i8) {
         (u8::from(self.x()) as i8, u8::from(self.y()) as i8)
     }

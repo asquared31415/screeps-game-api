@@ -152,6 +152,7 @@ impl HasStore for StructureSpawn {
 }
 
 #[derive(Default)]
+#[must_use]
 pub struct SpawnOptions {
     memory: Option<JsValue>,
     energy_structures: Option<Array>,

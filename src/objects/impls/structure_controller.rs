@@ -138,6 +138,7 @@ extern "C" {
 
 impl Reservation {
     /// The name of the player that has reserved this controller.
+    #[must_use]
     pub fn username(&self) -> String {
         Self::username_internal(self).into()
     }
@@ -168,11 +169,13 @@ extern "C" {
 
 impl Sign {
     /// The name of the player that has reserved this controller.
+    #[must_use]
     pub fn username(&self) -> String {
         Self::username_internal(self).into()
     }
 
     /// The text of the sign on this controller.
+    #[must_use]
     pub fn text(&self) -> String {
         Self::text_internal(self).into()
     }

@@ -23,6 +23,7 @@ pub trait FromReturnCode {
 
     fn try_result_from_i8(val: i8) -> Option<Result<(), Self::Error>>;
 
+    #[must_use]
     fn try_result_from_jsvalue(val: &JsValue) -> Option<Result<(), Self::Error>> {
         val.as_f64().and_then(|f| Self::try_result_from_i8(f as i8))
     }

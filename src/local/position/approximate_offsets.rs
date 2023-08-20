@@ -8,6 +8,7 @@ impl Position {
     ///
     /// If `distance_towards_target` is bigger than the distance to the target,
     /// the target is returned.
+    #[must_use]
     pub fn towards(self, target: Position, distance_towards_target: i32) -> Position {
         let (offset_x, offset_y) = target - self;
         let total_distance = offset_x.abs().max(offset_y.abs());
@@ -27,6 +28,7 @@ impl Position {
     ///
     /// If `distance_from_target` is bigger than the distance to the target,
     /// this position is returned.
+    #[must_use]
     pub fn between(self, target: Position, distance_from_target: i32) -> Position {
         target.towards(self, distance_from_target)
     }
@@ -34,6 +36,7 @@ impl Position {
     /// Calculates an approximate midpoint between this point and the target.
     ///
     /// In case of a tie, rounds towards the target.
+    #[must_use]
     pub fn midpoint_between(self, target: Position) -> Position {
         let (offset_x, offset_y) = self - target;
 

@@ -78,6 +78,7 @@ extern "C" {
 /// construction sites.
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.constructionSites)
+#[must_use]
 pub fn construction_sites() -> JsHashMap<RawObjectId, ConstructionSite> {
     Game::construction_sites().into()
 }
@@ -89,6 +90,7 @@ pub fn construction_sites() -> JsHashMap<RawObjectId, ConstructionSite> {
 /// not have an id until the following tick.
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.creeps)
+#[must_use]
 pub fn creeps() -> JsHashMap<String, Creep> {
     Game::creeps().into()
 }
@@ -97,6 +99,7 @@ pub fn creeps() -> JsHashMap<String, Creep> {
 /// names as keys.
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.flags)
+#[must_use]
 pub fn flags() -> JsHashMap<String, Flag> {
     Game::flags().into()
 }
@@ -105,6 +108,7 @@ pub fn flags() -> JsHashMap<String, Flag> {
 /// creeps, which has power creep names as keys.
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.powerCreeps)
+#[must_use]
 pub fn power_creeps() -> JsHashMap<String, AccountPowerCreep> {
     Game::power_creeps().into()
 }
@@ -113,6 +117,7 @@ pub fn power_creeps() -> JsHashMap<String, AccountPowerCreep> {
 /// resources.
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.resources)
+#[must_use]
 pub fn resources() -> JsHashMap<IntershardResourceType, u32> {
     Game::resources().into()
 }
@@ -121,6 +126,7 @@ pub fn resources() -> JsHashMap<IntershardResourceType, u32> {
 /// tick.
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.rooms)
+#[must_use]
 pub fn rooms() -> JsHashMap<RoomName, Room> {
     Game::rooms().into()
 }
@@ -129,6 +135,7 @@ pub fn rooms() -> JsHashMap<RoomName, Room> {
 /// has spawn names as keys.
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.spawns)
+#[must_use]
 pub fn spawns() -> JsHashMap<String, StructureSpawn> {
     Game::spawns().into()
 }
@@ -137,6 +144,7 @@ pub fn spawns() -> JsHashMap<String, StructureSpawn> {
 /// structures.
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.spawns)
+#[must_use]
 pub fn structures() -> JsHashMap<RawObjectId, StructureObject> {
     Game::structures().into()
 }
@@ -144,6 +152,7 @@ pub fn structures() -> JsHashMap<RawObjectId, StructureObject> {
 /// Get the current time, the number of ticks the game has been running.
 ///
 /// [Screeps documentation](http://docs.screeps.com/api/#Game.time)
+#[must_use]
 pub fn time() -> u32 {
     Game::time()
 }
@@ -152,6 +161,7 @@ pub fn time() -> u32 {
 ///
 /// [Screeps documentation](https://docs-season.screeps.com/api/#Game.score)
 #[cfg(feature = "symbols")]
+#[must_use]
 pub fn score() -> u32 {
     Game::score()
 }
@@ -161,6 +171,7 @@ pub fn score() -> u32 {
 ///
 /// [Screeps documentation](https://docs-season.screeps.com/api/#Game.symbols)
 #[cfg(feature = "symbols")]
+#[must_use]
 pub fn symbols() -> JsHashMap<crate::ResourceType, u32> {
     Game::symbols().into()
 }
@@ -198,6 +209,7 @@ where
 /// still alive and visible.
 ///
 /// [Screeps documentation](http://docs.screeps.com/api/#Game.getObjectById)
+#[must_use]
 pub fn get_object_by_id_erased(id: &RawObjectId) -> Option<RoomObject> {
     // construct a reference to a javascript string using the id data
     let js_str = JsString::from(id.to_string());

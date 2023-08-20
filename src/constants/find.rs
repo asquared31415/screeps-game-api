@@ -207,26 +207,31 @@ pub enum Exit {
 
 impl Exit {
     #[inline]
+    #[must_use]
     pub const fn top() -> Self {
         Exit::Top
     }
 
     #[inline]
+    #[must_use]
     pub const fn right() -> Self {
         Exit::Right
     }
 
     #[inline]
+    #[must_use]
     pub const fn bottom() -> Self {
         Exit::Bottom
     }
 
     #[inline]
+    #[must_use]
     pub const fn left() -> Self {
         Exit::Left
     }
 
     #[inline]
+    #[must_use]
     pub const fn all() -> Self {
         Exit::All
     }

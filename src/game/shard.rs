@@ -20,16 +20,19 @@ extern "C" {
 }
 
 /// Current shard name.
+#[must_use]
 pub fn name() -> String {
     Shard::name().into()
 }
 
 /// Shard type. Currently always "normal".
+#[must_use]
 pub fn shard_type() -> String {
     Shard::shard_type().into()
 }
 
 /// Flag for if this is a public test server or not.
+#[must_use]
 pub fn ptr() -> bool {
     Shard::ptr()
 }

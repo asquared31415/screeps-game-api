@@ -19,26 +19,31 @@ pub struct CircleStyle {
 }
 
 impl CircleStyle {
+    #[must_use]
     pub fn radius(mut self, val: f32) -> CircleStyle {
         self.radius = Some(val);
         self
     }
 
+    #[must_use]
     pub fn fill(mut self, val: &str) -> CircleStyle {
         self.fill = Some(val.to_string());
         self
     }
 
+    #[must_use]
     pub fn opacity(mut self, val: f32) -> CircleStyle {
         self.opacity = Some(val);
         self
     }
 
+    #[must_use]
     pub fn stroke(mut self, val: &str) -> CircleStyle {
         self.stroke = Some(val.to_string());
         self
     }
 
+    #[must_use]
     pub fn stroke_width(mut self, val: f32) -> CircleStyle {
         self.stroke_width = Some(val);
         self
@@ -64,6 +69,7 @@ pub enum LineDrawStyle {
 }
 
 impl LineDrawStyle {
+    #[must_use]
     pub fn is_solid(&self) -> bool {
         matches!(self, LineDrawStyle::Solid)
     }
@@ -83,21 +89,25 @@ pub struct LineStyle {
 }
 
 impl LineStyle {
+    #[must_use]
     pub fn width(mut self, val: f32) -> LineStyle {
         self.width = Some(val);
         self
     }
 
+    #[must_use]
     pub fn color(mut self, val: &str) -> LineStyle {
         self.color = Some(val.to_string());
         self
     }
 
+    #[must_use]
     pub fn opacity(mut self, val: f32) -> LineStyle {
         self.opacity = Some(val);
         self
     }
 
+    #[must_use]
     pub fn line_style(mut self, val: LineDrawStyle) -> LineStyle {
         self.line_style = val;
         self
@@ -130,26 +140,31 @@ pub struct RectStyle {
 }
 
 impl RectStyle {
+    #[must_use]
     pub fn fill(mut self, val: &str) -> RectStyle {
         self.fill = Some(val.to_string());
         self
     }
 
+    #[must_use]
     pub fn opacity(mut self, val: f32) -> RectStyle {
         self.opacity = Some(val);
         self
     }
 
+    #[must_use]
     pub fn stroke(mut self, val: &str) -> RectStyle {
         self.stroke = Some(val.to_string());
         self
     }
 
+    #[must_use]
     pub fn stroke_width(mut self, val: f32) -> RectStyle {
         self.stroke_width = Some(val);
         self
     }
 
+    #[must_use]
     pub fn line_style(mut self, val: LineDrawStyle) -> RectStyle {
         self.line_style = val;
         self
@@ -184,26 +199,31 @@ pub struct PolyStyle {
 }
 
 impl PolyStyle {
+    #[must_use]
     pub fn fill(mut self, val: &str) -> PolyStyle {
         self.fill = Some(val.to_string());
         self
     }
 
+    #[must_use]
     pub fn opacity(mut self, val: f32) -> PolyStyle {
         self.opacity = Some(val);
         self
     }
 
+    #[must_use]
     pub fn stroke(mut self, val: &str) -> PolyStyle {
         self.stroke = Some(val.to_string());
         self
     }
 
+    #[must_use]
     pub fn stroke_width(mut self, val: f32) -> PolyStyle {
         self.stroke_width = Some(val);
         self
     }
 
+    #[must_use]
     pub fn line_style(mut self, val: LineDrawStyle) -> PolyStyle {
         self.line_style = val;
         self
@@ -235,6 +255,7 @@ pub enum TextAlign {
 }
 
 impl TextAlign {
+    #[must_use]
     pub fn is_center(&self) -> bool {
         matches!(self, TextAlign::Center)
     }
@@ -262,46 +283,55 @@ pub struct TextStyle {
 }
 
 impl TextStyle {
+    #[must_use]
     pub fn color(mut self, val: &str) -> TextStyle {
         self.color = Some(val.to_string());
         self
     }
 
+    #[must_use]
     pub fn font(mut self, val: f32) -> TextStyle {
         self.font = Some(FontStyle::Size(val));
         self
     }
 
+    #[must_use]
     pub fn custom_font(mut self, val: &str) -> TextStyle {
         self.font = Some(FontStyle::Custom(val.to_string()));
         self
     }
 
+    #[must_use]
     pub fn stroke(mut self, val: &str) -> TextStyle {
         self.stroke = Some(val.to_string());
         self
     }
 
+    #[must_use]
     pub fn stroke_width(mut self, val: f32) -> TextStyle {
         self.stroke_width = Some(val);
         self
     }
 
+    #[must_use]
     pub fn background_color(mut self, val: &str) -> TextStyle {
         self.background_color = Some(val.to_string());
         self
     }
 
+    #[must_use]
     pub fn background_padding(mut self, val: f32) -> TextStyle {
         self.background_padding = Some(val);
         self
     }
 
+    #[must_use]
     pub fn align(mut self, val: TextAlign) -> TextStyle {
         self.align = val;
         self
     }
 
+    #[must_use]
     pub fn opacity(mut self, val: f32) -> TextStyle {
         self.opacity = Some(val);
         self
@@ -333,10 +363,12 @@ pub enum Visual {
 }
 
 impl Visual {
+    #[must_use]
     pub fn circle(x: f32, y: f32, style: Option<CircleStyle>) -> Visual {
         Visual::Circle(CircleData { x, y, style })
     }
 
+    #[must_use]
     pub fn line(from: (f32, f32), to: (f32, f32), style: Option<LineStyle>) -> Visual {
         Visual::Line(LineData {
             x1: from.0,
@@ -347,6 +379,7 @@ impl Visual {
         })
     }
 
+    #[must_use]
     pub fn rect(x: f32, y: f32, width: f32, height: f32, style: Option<RectStyle>) -> Visual {
         Visual::Rect(RectData {
             x,
@@ -357,10 +390,12 @@ impl Visual {
         })
     }
 
+    #[must_use]
     pub fn poly(points: Vec<(f32, f32)>, style: Option<PolyStyle>) -> Visual {
         Visual::Poly(PolyData { points, style })
     }
 
+    #[must_use]
     pub fn text(x: f32, y: f32, text: String, style: Option<TextStyle>) -> Visual {
         Visual::Text(TextData { x, y, text, style })
     }
@@ -371,6 +406,7 @@ pub struct RoomVisual {
 }
 
 impl RoomVisual {
+    #[must_use]
     pub fn new(room_name: Option<RoomName>) -> RoomVisual {
         RoomVisual { room_name }
     }

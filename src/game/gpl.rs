@@ -20,16 +20,19 @@ extern "C" {
 
 /// Your current Global Power Level, which determines power creep
 /// development.
+#[must_use]
 pub fn level() -> u32 {
     Gpl::level()
 }
 
 /// Your progress toward the next Global Power Level.
+#[must_use]
 pub fn progress() -> f64 {
     Gpl::progress()
 }
 
 /// Total progress needed to reach the next Global Power Level.
+#[must_use]
 pub fn progress_total() -> f64 {
     Gpl::progress_total()
 }

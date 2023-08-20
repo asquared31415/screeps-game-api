@@ -590,6 +590,7 @@ impl From<Structure> for StructureObject {
 }
 
 impl StructureObject {
+    #[must_use]
     pub fn as_structure(&self) -> &Structure {
         match self {
             Self::StructureSpawn(s) => s.as_ref(),
@@ -616,6 +617,7 @@ impl StructureObject {
         }
     }
 
+    #[must_use]
     pub fn as_owned(&self) -> Option<&dyn OwnedStructureProperties> {
         match self {
             Self::StructureSpawn(s) => Some(s),
@@ -642,6 +644,7 @@ impl StructureObject {
         }
     }
 
+    #[must_use]
     pub fn as_has_store(&self) -> Option<&dyn HasStore> {
         match self {
             Self::StructureSpawn(s) => Some(s),
@@ -668,6 +671,7 @@ impl StructureObject {
         }
     }
 
+    #[must_use]
     pub fn as_transferable(&self) -> Option<&dyn Transferable> {
         match self {
             Self::StructureSpawn(s) => Some(s),
@@ -694,6 +698,7 @@ impl StructureObject {
         }
     }
 
+    #[must_use]
     pub fn as_withdrawable(&self) -> Option<&dyn Withdrawable> {
         match self {
             Self::StructureSpawn(s) => Some(s),
@@ -720,6 +725,7 @@ impl StructureObject {
         }
     }
 
+    #[must_use]
     pub fn as_attackable(&self) -> Option<&dyn Attackable> {
         match self {
             Self::StructureSpawn(s) => Some(s),
@@ -746,6 +752,7 @@ impl StructureObject {
         }
     }
 
+    #[must_use]
     pub fn as_dismantleable(&self) -> Option<&dyn Dismantleable> {
         match self {
             Self::StructureSpawn(s) => Some(s),

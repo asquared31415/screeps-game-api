@@ -38,6 +38,7 @@ impl RoomTerrain {
     /// of the room.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#Room.Terrain.constructor)
+    #[must_use]
     pub fn new(room_name: RoomName) -> RoomTerrain {
         let name = room_name.into();
 
@@ -49,6 +50,7 @@ impl RoomTerrain {
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#Room.Terrain.getRawBuffer)
     #[inline]
+    #[must_use]
     pub fn get_raw_buffer(&self) -> Uint8Array {
         self.get_raw_buffer_internal()
     }

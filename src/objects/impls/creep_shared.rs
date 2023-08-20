@@ -42,6 +42,7 @@ impl Default for JsMoveToOptions {
     }
 }
 
+#[must_use]
 pub struct MoveToOptions<F>
 where
     F: FnMut(RoomName, CostMatrix) -> SingleRoomCostResult,

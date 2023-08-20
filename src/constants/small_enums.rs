@@ -300,6 +300,7 @@ impl Terrain {
     // the strings here do not match the terrain mask constants, appearing nowhere
     // but look results. assuming it's a plain if it's anything invalid is probably
     // not the best approach but for now it's something
+    #[must_use]
     pub fn from_look_constant_str(terrain_look_str: &str) -> Self {
         match terrain_look_str {
             "wall" => Terrain::Wall,
@@ -309,6 +310,7 @@ impl Terrain {
         }
     }
 
+    #[must_use]
     pub fn from_look_constant_jsvalue(terrain_look_jsvalue: JsValue) -> Self {
         let terrain_look_string: String = JsString::from(terrain_look_jsvalue).into();
         Self::from_look_constant_str(&terrain_look_string)
@@ -332,6 +334,7 @@ pub enum Part {
 impl Part {
     /// Translates the `BODYPART_COST` constant.
     #[inline]
+    #[must_use]
     pub const fn cost(self) -> u32 {
         match self {
             Part::Move => 50,
@@ -393,6 +396,7 @@ impl Density {
     /// Translates the `MINERAL_DENSITY` constant, the amount of mineral
     /// generated for each density level
     #[inline]
+    #[must_use]
     pub const fn amount(self) -> u32 {
         match self {
             Density::Low => 15_000,
@@ -420,6 +424,7 @@ impl Density {
     /// [source]: https://github.com/screeps/engine/blob/c0cfac8f746f26c660501686f16a1fcdb0396d8d/src/processor/intents/minerals/tick.js#L19
     /// [`MINERAL_DENSITY_CHANGE`]: crate::constants::MINERAL_DENSITY_CHANGE
     #[inline]
+    #[must_use]
     pub const fn probability(self) -> f32 {
         match self {
             Density::Low => 0.1,

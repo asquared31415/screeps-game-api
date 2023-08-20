@@ -66,6 +66,7 @@ impl CostMatrix {
     /// across the memory boundary.
     ///
     /// [`LocalCostMatrix::get_bits`]: crate::local::LocalCostMatrix
+    #[must_use]
     pub fn new_from_bits(bits: &[u8]) -> CostMatrix {
         let matrix = CostMatrix::from(JsValue::from(Object::create(&COST_MATRIX_PROTOTYPE)));
         matrix.set_bits(&Uint8Array::from(bits));

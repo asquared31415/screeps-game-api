@@ -90,6 +90,7 @@ pub enum MapVisualShape {
 }
 
 impl MapVisualShape {
+    #[must_use]
     pub fn circle(center: Position, style: Option<CircleStyle>) -> MapVisualShape {
         MapVisualShape::Circle(MapCircleData {
             x: center.x(),
@@ -99,6 +100,7 @@ impl MapVisualShape {
         })
     }
 
+    #[must_use]
     pub fn line(from: Position, to: Position, style: Option<LineStyle>) -> MapVisualShape {
         MapVisualShape::Line(MapLineData {
             x1: from.x(),
@@ -111,6 +113,7 @@ impl MapVisualShape {
         })
     }
 
+    #[must_use]
     pub fn rect(
         top_left: Position,
         width: u32,
@@ -127,10 +130,12 @@ impl MapVisualShape {
         })
     }
 
+    #[must_use]
     pub fn poly(points: Vec<MapPolyPoint>, style: Option<PolyStyle>) -> MapVisualShape {
         MapVisualShape::Poly(MapPolyData { points, style })
     }
 
+    #[must_use]
     pub fn text(pos: Position, text: String, style: Option<TextStyle>) -> MapVisualShape {
         MapVisualShape::Text(MapTextData {
             x: pos.x(),

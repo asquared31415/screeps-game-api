@@ -18,6 +18,7 @@ extern "C" {
 }
 
 impl LodashFilter {
+    #[must_use]
     pub fn new() -> LodashFilter {
         Object::new().unchecked_into()
     }

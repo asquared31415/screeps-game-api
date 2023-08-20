@@ -12,6 +12,7 @@ use crate::constants::*;
 /// you've spent to achieve your current level
 ///
 /// [Code reference](https://github.com/screeps/engine/blob/6d498f2f0db4e0744fa6bf8563836d36b49b6a29/src/game/game.js#L117)
+#[must_use]
 pub fn control_points_for_gcl(level: u32) -> f64 {
     ((level - 1) as f64).powf(GCL_POW) * GCL_MULTIPLY as f64
 }
@@ -25,6 +26,7 @@ pub fn control_points_for_gcl(level: u32) -> f64 {
 /// processed to achieve your current level
 ///
 /// [Code reference](https://github.com/screeps/engine/blob/6d498f2f0db4e0744fa6bf8563836d36b49b6a29/src/game/game.js#L120)
+#[must_use]
 pub const fn power_for_gpl(level: u32) -> u128 {
     (level as u128).pow(POWER_LEVEL_POW) * POWER_LEVEL_MULTIPLY as u128
 }

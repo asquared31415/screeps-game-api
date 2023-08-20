@@ -256,6 +256,7 @@ impl Position {
     /// Will panic if either `x` or `y` is larger than 49, or if `room_name` is
     /// outside of the range `E127N127 - W127S127`.
     #[inline]
+    #[must_use]
     pub fn new(x: RoomCoordinate, y: RoomCoordinate, room_name: RoomName) -> Self {
         Self::from_coords_adjusted_and_room_packed(x.into(), y.into(), room_name.packed_repr())
     }
@@ -265,6 +266,7 @@ impl Position {
     ///
     /// Non-public as this doesn't check the bounds for any of these values.
     #[inline]
+    #[must_use]
     const fn from_coords_and_world_coords_adjusted(x: u8, y: u8, room_x: u32, room_y: u32) -> Self {
         Position {
             packed: (room_x << 24) | (room_y << 16) | ((x as u32) << 8) | (y as u32),
@@ -276,6 +278,7 @@ impl Position {
     ///
     /// Non-public as this doesn't check the bounds for any of these values.
     #[inline]
+    #[must_use]
     const fn from_coords_adjusted_and_room_packed(x: u8, y: u8, room_repr_packed: u16) -> Self {
         Position {
             packed: ((room_repr_packed as u32) << 16) | ((x as u32) << 8) | (y as u32),
@@ -283,11 +286,13 @@ impl Position {
     }
 
     #[inline]
+    #[must_use]
     pub const fn packed_repr(self) -> u32 {
         self.packed
     }
 
     #[inline]
+    #[must_use]
     pub fn from_packed(packed: u32) -> Self {
         let x = packed >> 8 & 0xFF;
         let y = packed & 0xFF;
@@ -298,18 +303,21 @@ impl Position {
 
     /// Gets the horizontal coordinate of this position's room name.
     #[inline]
+    #[must_use]
     fn room_x(self) -> i32 {
         self.room_name().x_coord()
     }
 
     /// Gets the vertical coordinate of this position's room name.
     #[inline]
+    #[must_use]
     fn room_y(self) -> i32 {
         self.room_name().y_coord()
     }
 
     /// Gets this position's in-room x coordinate.
     #[inline]
+    #[must_use]
     pub fn x(self) -> RoomCoordinate {
         // SAFETY: packed always contains a valid x coordinate
         unsafe { RoomCoordinate::unchecked_new((self.packed >> 8 & 0xFF) as u8) }
@@ -317,6 +325,7 @@ impl Position {
 
     /// Gets this position's in-room y coordinate.
     #[inline]
+    #[must_use]
     pub fn y(self) -> RoomCoordinate {
         // SAFETY: packed always contains a valid y coordinate
         unsafe { RoomCoordinate::unchecked_new((self.packed & 0xFF) as u8) }
@@ -324,6 +333,7 @@ impl Position {
 
     /// Gets this position's in-room [`RoomXY`] coordinate pair
     #[inline]
+    #[must_use]
     pub fn xy(self) -> RoomXY {
         // SAFETY: packed always contains a valid pair
         unsafe {
@@ -332,6 +342,7 @@ impl Position {
     }
 
     #[inline]
+    #[must_use]
     pub fn room_name(self) -> RoomName {
         RoomName::from_packed(((self.packed >> 16) & 0xFFFF) as u16)
     }
@@ -353,18 +364,21 @@ impl Position {
     }
 
     #[inline]
+    #[must_use]
     pub fn with_x(mut self, x: RoomCoordinate) -> Self {
         self.set_x(x);
         self
     }
 
     #[inline]
+    #[must_use]
     pub fn with_y(mut self, y: RoomCoordinate) -> Self {
         self.set_y(y);
         self
     }
 
     #[inline]
+    #[must_use]
     pub fn with_room_name(mut self, room_name: RoomName) -> Self {
         self.set_room_name(room_name);
         self

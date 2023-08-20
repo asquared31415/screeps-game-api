@@ -140,6 +140,7 @@ impl RawObjectId {
     ///
     /// The input to this function is the bytes representing the up-to-24 hex
     /// digits in the object id.
+    #[must_use]
     pub const fn from_packed(packed: u128) -> Self {
         RawObjectId { packed }
     }
@@ -148,6 +149,7 @@ impl RawObjectId {
     ///
     /// This is equivalent to [`ToString::to_string`], but involves no
     /// allocation.
+    #[must_use]
     pub fn to_array_string(&self) -> ArrayString<24> {
         let mut res = ArrayString::new();
         write!(res, "{self}").expect("expected formatting into a fixed-sized buffer to succeed");

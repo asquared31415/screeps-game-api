@@ -25,6 +25,7 @@ impl Default for LocalCostMatrix {
 
 impl LocalCostMatrix {
     #[inline]
+    #[must_use]
     pub const fn new() -> Self {
         LocalCostMatrix {
             bits: [0; ROOM_AREA],
@@ -43,10 +44,12 @@ impl LocalCostMatrix {
     // This method does no bounds checking for the passed-in `RoomXY`, you may use
     // `RoomXY::unchecked_new` to skip all bounds checking.
     #[inline]
+    #[must_use]
     pub fn get(&self, xy: RoomXY) -> u8 {
         self[xy]
     }
 
+    #[must_use]
     pub const fn get_bits(&self) -> &[u8; ROOM_AREA] {
         &self.bits
     }
@@ -160,12 +163,14 @@ impl Default for SparseCostMatrix {
 }
 
 impl SparseCostMatrix {
+    #[must_use]
     pub fn new() -> Self {
         SparseCostMatrix {
             inner: HashMap::new(),
         }
     }
 
+    #[must_use]
     pub fn get(&self, xy: RoomXY) -> u8 {
         *self.inner.get(&xy).unwrap_or(&0)
     }

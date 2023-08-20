@@ -20,6 +20,7 @@ pub struct FactoryRecipe {
 impl ResourceType {
     /// Translates the `REACTIONS` constant.
     #[inline]
+    #[must_use]
     pub const fn reaction_components(self) -> Option<[ResourceType; 2]> {
         use ResourceType::*;
         let components = match self {
@@ -99,6 +100,7 @@ impl ResourceType {
 
     /// Translates the `REACTION_TIME` constant.
     #[inline]
+    #[must_use]
     pub const fn reaction_time(self) -> Option<u32> {
         use ResourceType::*;
         let time = match self {
@@ -179,6 +181,7 @@ impl ResourceType {
 
     /// Translates the `COMMODITIES` constant to recipes that can be used by a
     /// factory to make each commodity
+    #[must_use]
     pub fn commodity_recipe(self) -> Option<FactoryRecipe> {
         use ResourceType::*;
         let recipe = match self {

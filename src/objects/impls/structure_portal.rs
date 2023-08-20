@@ -29,6 +29,7 @@ extern "C" {
 }
 
 impl StructurePortal {
+    #[must_use]
     pub fn destination(&self) -> PortalDestination {
         let dest = Self::destination_internal(self);
         match dest.dyn_ref::<RoomPosition>() {
@@ -39,6 +40,7 @@ impl StructurePortal {
 }
 
 impl CanDecay for StructurePortal {
+    #[must_use]
     fn ticks_to_decay(&self) -> u32 {
         Self::ticks_to_decay(self)
     }
@@ -66,6 +68,7 @@ extern "C" {
 }
 
 impl InterShardPortalDestination {
+    #[must_use]
     pub fn room(&self) -> RoomName {
         Self::room_internal(self)
             .try_into()

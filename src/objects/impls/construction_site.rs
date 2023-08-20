@@ -43,6 +43,7 @@ impl ConstructionSite {
     /// Whether you own the [`ConstructionSite`].
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#ConstructionSite.my)
+    #[must_use]
     pub fn my(&self) -> bool {
         self.my_internal()
     }
@@ -51,6 +52,7 @@ impl ConstructionSite {
     /// username.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#ConstructionSite.owner)
+    #[must_use]
     pub fn owner(&self) -> Owner {
         self.owner_internal()
     }
@@ -58,6 +60,7 @@ impl ConstructionSite {
     /// The current progress toward completion of the structure being built.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#ConstructionSite.progress)
+    #[must_use]
     pub fn progress(&self) -> u32 {
         self.progress_internal()
     }
@@ -66,6 +69,7 @@ impl ConstructionSite {
     /// to be completed.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#ConstructionSite.progressTotal)
+    #[must_use]
     pub fn progress_total(&self) -> u32 {
         self.progress_total_internal()
     }
@@ -73,6 +77,7 @@ impl ConstructionSite {
     /// The type of structure being constructed.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#Structure.structureType)
+    #[must_use]
     pub fn structure_type(&self) -> StructureType {
         self.structure_type_internal()
     }

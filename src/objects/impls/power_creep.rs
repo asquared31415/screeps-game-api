@@ -134,6 +134,7 @@ impl PowerCreep {
     /// Retrieve this power creep's [`PowerCreepClass`].
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#PowerCreep.className)
+    #[must_use]
     pub fn class(&self) -> PowerCreepClass {
         self.class_internal()
     }
@@ -141,6 +142,7 @@ impl PowerCreep {
     /// Retrieve the current hits of this power creep.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#PowerCreep.hits)
+    #[must_use]
     pub fn hits(&self) -> u32 {
         self.hits_internal()
     }
@@ -148,6 +150,7 @@ impl PowerCreep {
     /// Retrieve the maximum hits of this power creep.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#PowerCreep.hitsMax)
+    #[must_use]
     pub fn hits_max(&self) -> u32 {
         self.hits_max_internal()
     }
@@ -156,6 +159,7 @@ impl PowerCreep {
     /// [`AccountPowerCreep::upgrade`] if you have unspent GPL.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#PowerCreep.level)
+    #[must_use]
     pub fn level(&self) -> u32 {
         self.level_internal()
     }
@@ -163,6 +167,7 @@ impl PowerCreep {
     /// A shortcut to `Memory.powerCreeps[power_creep.name]`.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#PowerCreep.memory)
+    #[must_use]
     pub fn memory(&self) -> JsValue {
         self.memory_internal()
     }
@@ -177,6 +182,7 @@ impl PowerCreep {
     /// Whether this power creep is owned by the player.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#PowerCreep.my)
+    #[must_use]
     pub fn my(&self) -> bool {
         self.my_internal()
     }
@@ -184,6 +190,7 @@ impl PowerCreep {
     /// The [`Owner`] of this power creep that contains the owner's username.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#PowerCreep.owner)
+    #[must_use]
     pub fn owner(&self) -> Owner {
         self.owner_internal()
     }
@@ -192,6 +199,7 @@ impl PowerCreep {
     /// values containing power level and cooldown.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#PowerCreep.powers)
+    #[must_use]
     pub fn powers(&self) -> JsHashMap<PowerType, PowerInfo> {
         self.powers_internal().into()
     }
@@ -199,6 +207,7 @@ impl PowerCreep {
     /// What the power creep said last tick.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#PowerCreep.saying)
+    #[must_use]
     pub fn saying(&self) -> Option<JsString> {
         self.saying_internal()
     }
@@ -207,6 +216,7 @@ impl PowerCreep {
     /// resources it is it carrying.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#PowerCreep.store)
+    #[must_use]
     pub fn store(&self) -> Store {
         self.store_internal()
     }
@@ -214,6 +224,7 @@ impl PowerCreep {
     /// The shard the power creep is currently spawned on, if spawned.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#PowerCreep.shard)
+    #[must_use]
     pub fn shard(&self) -> Option<JsString> {
         self.shard_internal()
     }
@@ -224,6 +235,7 @@ impl PowerCreep {
     /// [Screeps documentation](https://docs.screeps.com/api/#PowerCreep.ticksToLive)
     ///
     /// [`StructurePowerBank`]: crate::objects::StructurePowerBank
+    #[must_use]
     pub fn ticks_to_live(&self) -> Option<u32> {
         self.ticks_to_live_internal()
     }
@@ -505,6 +517,7 @@ impl AccountPowerCreep {
     /// Retrieve this power creep's [`PowerCreepClass`].
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#PowerCreep.className)
+    #[must_use]
     pub fn class(&self) -> PowerCreepClass {
         self.class_internal()
     }
@@ -515,6 +528,7 @@ impl AccountPowerCreep {
     /// cancelled with the same function until then.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#PowerCreep.deleteTime)
+    #[must_use]
     pub fn delete_time(&self) -> Option<f64> {
         self.delete_time_internal()
     }
@@ -523,6 +537,7 @@ impl AccountPowerCreep {
     /// [`AccountPowerCreep::upgrade`] if you have unspent GPL.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#PowerCreep.level)
+    #[must_use]
     pub fn level(&self) -> u32 {
         self.level_internal()
     }
@@ -531,6 +546,7 @@ impl AccountPowerCreep {
     /// values containing power level and cooldown.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#PowerCreep.powers)
+    #[must_use]
     pub fn powers(&self) -> JsHashMap<PowerType, PowerInfo> {
         self.powers_internal().into()
     }
@@ -538,6 +554,7 @@ impl AccountPowerCreep {
     /// The shard the power creep is currently spawned on, if spawned.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#PowerCreep.shard)
+    #[must_use]
     pub fn shard(&self) -> Option<JsString> {
         self.shard_internal()
     }
@@ -547,6 +564,7 @@ impl AccountPowerCreep {
     /// allowed to spawn again after dying.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#PowerCreep.spawnCooldownTime)
+    #[must_use]
     pub fn spawn_cooldown_time(&self) -> Option<f64> {
         self.spawn_cooldown_time_internal()
     }

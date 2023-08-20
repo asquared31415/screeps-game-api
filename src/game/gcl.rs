@@ -20,16 +20,19 @@ extern "C" {
 
 /// Your current Global Control Level, which determines the number of rooms
 /// you are allowed to claim.
+#[must_use]
 pub fn level() -> u32 {
     Gcl::level()
 }
 
 /// Your progress toward the next Global Control Level.
+#[must_use]
 pub fn progress() -> f64 {
     Gcl::progress()
 }
 
 /// Total progress needed to reach the next Global Control Level.
+#[must_use]
 pub fn progress_total() -> f64 {
     Gcl::progress_total()
 }

@@ -58,6 +58,7 @@ extern "C" {
 /// Your current credit balance.
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.market.credits)
+#[must_use]
 pub fn credits() -> f64 {
     Market::credits()
 }
@@ -86,6 +87,7 @@ pub fn outgoing_transactions() -> Vec<Transaction> {
 /// order ID [`JsString`] keys and [`MyOrder`] values.
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.market.orders)
+#[must_use]
 pub fn orders() -> JsHashMap<String, MyOrder> {
     Market::orders().into()
 }
@@ -98,6 +100,7 @@ pub fn orders() -> JsHashMap<String, MyOrder> {
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.market.calcTransactionCost)
 ///
 /// [`TERMINAL_SEND_COST_SCALE`]: crate::constants::TERMINAL_SEND_COST_SCALE
+#[must_use]
 pub fn calc_transaction_cost(amount: u32, room_1: &JsString, room_2: &JsString) -> u32 {
     Market::calc_transaction_cost(amount, room_1, room_2)
 }
@@ -174,6 +177,7 @@ pub fn get_all_orders(filter: Option<&LodashFilter>) -> Vec<Order> {
 /// the type is recommended before use if the market might be empty.
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.market.getHistory)
+#[must_use]
 pub fn get_history(resource: Option<ResourceType>) -> Vec<OrderHistoryRecord> {
     Market::get_history(resource)
         .map(|arr| arr.iter().map(Into::into).collect())
@@ -184,6 +188,7 @@ pub fn get_history(resource: Option<ResourceType>) -> Vec<OrderHistoryRecord> {
 /// format as returned by [`get_all_orders`]
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.market.getOrderById)
+#[must_use]
 pub fn get_order_by_id(order_id: &str) -> Option<Order> {
     let order_id: JsString = order_id.into();
 

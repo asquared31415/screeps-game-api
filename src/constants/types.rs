@@ -62,6 +62,7 @@ named_enum_serialize_deserialize!(StructureType);
 impl StructureType {
     /// Translates the `CONSTRUCTION_COST` constant.
     #[inline]
+    #[must_use]
     pub const fn construction_cost(self) -> Option<u32> {
         use self::StructureType::*;
 
@@ -89,6 +90,7 @@ impl StructureType {
 
     /// Translates the `CONTROLLER_STRUCTURES` constant
     #[inline]
+    #[must_use]
     pub const fn controller_structures(self, current_rcl: u32) -> u32 {
         use self::StructureType::*;
 
@@ -173,6 +175,7 @@ impl StructureType {
 
     /// Translates the `*_HITS` constants, initial hits for structures
     #[inline]
+    #[must_use]
     pub const fn initial_hits(self) -> Option<u32> {
         use self::StructureType::*;
         use super::numbers::*;
@@ -359,6 +362,7 @@ named_enum_serialize_deserialize!(ResourceType);
 impl ResourceType {
     /// Translates the `BOOSTS` constant.
     #[inline]
+    #[must_use]
     pub const fn boost(self) -> Option<Boost> {
         use ResourceType::*;
         let boost = match self {

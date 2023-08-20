@@ -183,6 +183,7 @@ impl Creep {
     /// this tick without being pulled.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#Creep.fatigue)
+    #[must_use]
     pub fn fatigue(&self) -> u32 {
         self.fatigue_internal()
     }
@@ -190,6 +191,7 @@ impl Creep {
     /// Retrieve the current hits of this creep.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#Creep.hits)
+    #[must_use]
     pub fn hits(&self) -> u32 {
         self.hits_internal()
     }
@@ -198,6 +200,7 @@ impl Creep {
     /// body part.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#Creep.hitsMax)
+    #[must_use]
     pub fn hits_max(&self) -> u32 {
         self.hits_max_internal()
     }
@@ -205,6 +208,7 @@ impl Creep {
     /// A shortcut to `Memory.creeps[creep.name]`.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#Creep.memory)
+    #[must_use]
     pub fn memory(&self) -> JsValue {
         self.memory_internal()
     }
@@ -219,6 +223,7 @@ impl Creep {
     /// Whether this creep is owned by the player.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#Creep.my)
+    #[must_use]
     pub fn my(&self) -> bool {
         self.my_internal()
     }
@@ -226,6 +231,7 @@ impl Creep {
     /// The [`Owner`] of this creep that contains the owner's username.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#Creep.owner)
+    #[must_use]
     pub fn owner(&self) -> Owner {
         self.owner_internal()
     }
@@ -233,6 +239,7 @@ impl Creep {
     /// What the creep said last tick.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#Creep.saying)
+    #[must_use]
     pub fn saying(&self) -> Option<JsString> {
         self.saying_internal()
     }
@@ -240,6 +247,7 @@ impl Creep {
     /// Whether the creep is still spawning.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#Creep.spawning)
+    #[must_use]
     pub fn spawning(&self) -> bool {
         self.spawning_internal()
     }
@@ -248,6 +256,7 @@ impl Creep {
     /// resources it is it carrying.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#Creep.store)
+    #[must_use]
     pub fn store(&self) -> Store {
         self.store_internal()
     }
@@ -255,6 +264,7 @@ impl Creep {
     /// The number of ticks the creep has left to live
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#Creep.ticksToLive)
+    #[must_use]
     pub fn ticks_to_live(&self) -> Option<u32> {
         self.ticks_to_live_internal()
     }
@@ -351,6 +361,7 @@ impl Creep {
     /// excluding fully damaged parts.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#Creep.getActiveBodyparts)
+    #[must_use]
     pub fn get_active_bodyparts(&self, ty: Part) -> u8 {
         self.get_active_bodyparts_internal(ty)
     }

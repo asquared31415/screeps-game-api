@@ -197,6 +197,7 @@ impl RoomPosition {
     /// coordinates and the room name.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#RoomPosition.constructor)
+    #[must_use]
     pub fn new(x: u8, y: u8, room_name: RoomName) -> RoomPosition {
         let room_name = room_name.into();
 
@@ -207,6 +208,7 @@ impl RoomPosition {
     /// to a string in Javascript memory.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#RoomPosition.roomName)
+    #[must_use]
     pub fn room_name(&self) -> RoomName {
         Self::room_name_internal(self)
             .try_into()
