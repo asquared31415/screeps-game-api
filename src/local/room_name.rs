@@ -359,8 +359,8 @@ fn parse_to_coords(s: &str) -> Result<(i32, i32), ()> {
     let mut chars = s.char_indices();
 
     let east = match chars.next() {
-        Some((_, 'E')) | Some((_, 'e')) => true,
-        Some((_, 'W')) | Some((_, 'w')) => false,
+        Some((_, 'E' | 'e')) => true,
+        Some((_, 'W' | 'w')) => false,
         _ => return Err(()),
     };
 
@@ -372,12 +372,12 @@ fn parse_to_coords(s: &str) -> Result<(i32, i32), ()> {
         let south;
         loop {
             match chars.next().ok_or(())? {
-                (i, 'N') | (i, 'n') => {
+                (i, 'N' | 'n') => {
                     end_index = i;
                     south = false;
                     break;
                 }
-                (i, 'S') | (i, 's') => {
+                (i, 'S' | 's') => {
                     end_index = i;
                     south = true;
                     break;

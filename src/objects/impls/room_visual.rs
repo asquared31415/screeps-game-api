@@ -397,7 +397,7 @@ impl Visual {
 
     #[must_use]
     pub fn text(x: f32, y: f32, text: String, style: Option<TextStyle>) -> Visual {
-        Visual::Text(TextData { x, y, text, style })
+        Visual::Text(TextData { text, x, y, style })
     }
 }
 

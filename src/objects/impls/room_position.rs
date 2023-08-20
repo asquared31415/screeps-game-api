@@ -387,9 +387,7 @@ impl RoomPosition {
         T: LookConstant,
     {
         match self.look_for_internal(T::look_code()) {
-            Ok(array) => Ok(array
-                .map(|arr| arr.iter().map(T::convert_and_check_item).collect())
-                .unwrap_or_else(Vec::new)),
+            Ok(array) => Ok(array.map_or_else(Vec::new, |arr| arr.iter().map(T::convert_and_check_item).collect())),
             Err(_) => Err(ErrorCode::NotInRange),
         }
     }

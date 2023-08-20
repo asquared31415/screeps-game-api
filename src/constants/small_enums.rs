@@ -346,9 +346,8 @@ impl Part {
             Part::Tough => 10,
             Part::Heal => 250,
             Part::Claim => 600,
-            // I guess bindgen is adding a `#[non_exhaustive]` onto the enum and forcing us to do
-            // this:
-            _ => 0,
+            // This variant covers all unknown strings since this is a bindgen string enum.
+            Part::__Nonexhaustive => 0,
         }
     }
 }

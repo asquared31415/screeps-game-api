@@ -588,7 +588,8 @@ impl From<Structure> for StructureObject {
             Terminal => Self::StructureTerminal(structure.unchecked_into()),
             Tower => Self::StructureTower(structure.unchecked_into()),
             Wall => Self::StructureWall(structure.unchecked_into()),
-            _ => panic!("unknown structure type for conversion into enum"),
+            // This variant covers all unknown strings since this is a bindgen string enum.
+            __Nonexhaustive => panic!("unknown structure type for conversion into enum"),
         }
     }
 }

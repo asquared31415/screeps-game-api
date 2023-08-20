@@ -10,6 +10,9 @@ use crate::objects::CostMatrix;
 
 use super::{linear_index_to_xy, xy_to_linear_index, Position, RoomXY, ROOM_AREA};
 
+// All `unsafe` is in unchecked indexing, which is not related to the
+// `Deserialize` impl.
+#[allow(clippy::unsafe_derive_deserialize)]
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(transparent)]
 pub struct LocalCostMatrix {
@@ -283,7 +286,7 @@ impl From<SparseCostMatrix> for LocalCostMatrix {
 impl From<&SparseCostMatrix> for LocalCostMatrix {
     fn from(scm: &SparseCostMatrix) -> Self {
         let mut lcm = LocalCostMatrix::new();
-        for (&pos, &val) in scm.inner.iter() {
+        for (&pos, &val) in &scm.inner {
             lcm[pos] = val;
         }
         lcm

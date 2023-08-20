@@ -224,7 +224,7 @@ impl CostMatrixSet for CostMatrix {
     {
         let matrix_buffer = self.get_bits();
 
-        for entry in data.into_iter() {
+        for entry in data {
             let (pos, cost) = entry.borrow();
 
             let offset = pos_as_idx(pos.x(), pos.y());

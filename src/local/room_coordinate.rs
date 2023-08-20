@@ -34,6 +34,8 @@ pub fn linear_index_to_xy(idx: usize) -> RoomXY {
     }
 }
 
+// The serde try_from u8 impl ensures safety in Deserialize.
+#[allow(clippy::unsafe_derive_deserialize)]
 #[derive(
     Debug, Hash, Default, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize,
 )]

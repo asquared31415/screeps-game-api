@@ -507,7 +507,7 @@ mod test {
         unsafe {
             vec![
                 (
-                    2172526892u32,
+                    2_172_526_892_u32,
                     (
                         RoomCoordinate::unchecked_new(33),
                         RoomCoordinate::unchecked_new(44),
@@ -515,7 +515,7 @@ mod test {
                     ),
                 ),
                 (
-                    2491351576u32,
+                    2_491_351_576_u32,
                     (
                         RoomCoordinate::unchecked_new(2),
                         RoomCoordinate::unchecked_new(24),
@@ -523,7 +523,7 @@ mod test {
                     ),
                 ),
                 (
-                    2139029504u32,
+                    2_139_029_504_u32,
                     (
                         RoomCoordinate::unchecked_new(0),
                         RoomCoordinate::unchecked_new(0),
@@ -531,7 +531,7 @@ mod test {
                     ),
                 ),
                 (
-                    2155806720u32,
+                    2_155_806_720_u32,
                     (
                         RoomCoordinate::unchecked_new(0),
                         RoomCoordinate::unchecked_new(0),
@@ -539,7 +539,7 @@ mod test {
                     ),
                 ),
                 (
-                    2139095040u32,
+                    2_139_095_040_u32,
                     (
                         RoomCoordinate::unchecked_new(0),
                         RoomCoordinate::unchecked_new(0),
@@ -547,7 +547,7 @@ mod test {
                     ),
                 ),
                 (
-                    2155872256u32,
+                    2_155_872_256_u32,
                     (
                         RoomCoordinate::unchecked_new(0),
                         RoomCoordinate::unchecked_new(0),
@@ -555,7 +555,7 @@ mod test {
                     ),
                 ),
                 (
-                    2021333800u32,
+                    2_021_333_800_u32,
                     (
                         RoomCoordinate::unchecked_new(27),
                         RoomCoordinate::unchecked_new(40),
