@@ -224,5 +224,5 @@ pub fn get_object_by_id_erased(id: &RawObjectId) -> Option<RoomObject> {
 pub fn notify(message: &str, group_interval: Option<u32>) {
     let message: JsString = message.into();
 
-    Game::notify(&message, group_interval)
+    Game::notify(&message, group_interval);
 }

@@ -118,7 +118,7 @@ pub fn get_used() -> f64 {
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#Game.cpu.halt)
 pub fn halt() {
-    Cpu::halt()
+    Cpu::halt();
 }
 
 /// Sets new shard limits for your script in an [`Object`], with shard names

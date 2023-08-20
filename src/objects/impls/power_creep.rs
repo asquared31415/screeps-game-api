@@ -176,7 +176,7 @@ impl PowerCreep {
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#PowerCreep.memory)
     pub fn set_memory(&self, val: &JsValue) {
-        self.set_memory_internal(val)
+        self.set_memory_internal(val);
     }
 
     /// Whether this power creep is owned by the player.
@@ -362,7 +362,7 @@ impl SharedCreepProperties for PowerCreep {
     }
 
     fn set_memory(&self, val: &JsValue) {
-        self.set_memory(val)
+        self.set_memory(val);
     }
 
     fn my(&self) -> bool {

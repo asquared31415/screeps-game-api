@@ -80,7 +80,7 @@ pub fn get() -> JsString {
 ///
 /// [`MEMORY_SIZE_LIMIT`]: crate::constants::MEMORY_SIZE_LIMIT
 pub fn set(val: &JsString) {
-    RawMemory::set(val)
+    RawMemory::set(val);
 }
 
 /// Sets available memory segments for the next tick, as an array of numbers
@@ -94,7 +94,7 @@ pub fn set_active_segments(segment_ids: &[u8]) {
         .map(JsValue::from_f64)
         .collect();
 
-    RawMemory::set_active_segments(&segment_ids)
+    RawMemory::set_active_segments(&segment_ids);
 }
 
 /// Sets available foreign memory segment for the next tick to a memory
@@ -103,7 +103,7 @@ pub fn set_active_segments(segment_ids: &[u8]) {
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#RawMemory.setActiveForeignSegment)
 pub fn set_active_foreign_segment(username: &JsString, segment_id: Option<u8>) {
-    RawMemory::set_active_foreign_segment(username, segment_id)
+    RawMemory::set_active_foreign_segment(username, segment_id);
 }
 
 /// Sets your default foreign memory segment for other players to read, or
@@ -111,7 +111,7 @@ pub fn set_active_foreign_segment(username: &JsString, segment_id: Option<u8>) {
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#RawMemory.setDefaultPublicSegment)
 pub fn set_default_public_segment(segment_id: Option<u8>) {
-    RawMemory::set_default_public_segment(segment_id)
+    RawMemory::set_default_public_segment(segment_id);
 }
 
 /// Sets which of your memory segments are readable to other players as
@@ -119,7 +119,7 @@ pub fn set_default_public_segment(segment_id: Option<u8>) {
 ///
 /// [Screeps documentation](https://docs.screeps.com/api/#RawMemory.setPublicSegments)
 pub fn set_public_segments(segment_ids: &[u8]) {
-    RawMemory::set_public_segments(segment_ids)
+    RawMemory::set_public_segments(segment_ids);
 }
 
 #[wasm_bindgen]

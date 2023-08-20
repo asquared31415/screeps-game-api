@@ -85,7 +85,7 @@ impl<T> PartialEq for ObjectId<T> {
 impl<T> Eq for ObjectId<T> {}
 impl<T> Hash for ObjectId<T> {
     fn hash<H: Hasher>(&self, state: &mut H) {
-        self.raw.hash(state)
+        self.raw.hash(state);
     }
 }
 impl<T> PartialOrd<ObjectId<T>> for ObjectId<T> {

@@ -217,7 +217,7 @@ impl Creep {
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#Creep.memory)
     pub fn set_memory(&self, val: &JsValue) {
-        self.set_memory_internal(val)
+        self.set_memory_internal(val);
     }
 
     /// Whether this creep is owned by the player.
@@ -552,7 +552,7 @@ impl SharedCreepProperties for Creep {
     }
 
     fn set_memory(&self, val: &JsValue) {
-        self.set_memory(val)
+        self.set_memory(val);
     }
 
     fn my(&self) -> bool {

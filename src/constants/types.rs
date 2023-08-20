@@ -565,7 +565,7 @@ impl wasm_bindgen::convert::IntoWasmAbi for MarketResourceType {
 
 impl wasm_bindgen::describe::WasmDescribe for MarketResourceType {
     fn describe() {
-        <wasm_bindgen::JsValue as wasm_bindgen::describe::WasmDescribe>::describe()
+        <wasm_bindgen::JsValue as wasm_bindgen::describe::WasmDescribe>::describe();
     }
 }
 
@@ -687,6 +687,6 @@ impl wasm_bindgen::convert::FromWasmAbi for EffectType {
 
 impl wasm_bindgen::describe::WasmDescribe for EffectType {
     fn describe() {
-        wasm_bindgen::describe::inform(wasm_bindgen::describe::U32)
+        wasm_bindgen::describe::inform(wasm_bindgen::describe::U32);
     }
 }

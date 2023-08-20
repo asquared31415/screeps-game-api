@@ -200,7 +200,7 @@ impl SparseCostMatrix {
                     None
                 }
             },
-        ))
+        ));
     }
 
     // Takes all entries in `src` and merges them into `self`.
