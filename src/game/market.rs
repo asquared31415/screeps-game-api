@@ -113,7 +113,7 @@ pub fn cancel_order(order_id: &JsString) -> Result<(), ErrorCode> {
     ErrorCode::result_from_i8(Market::cancel_order(order_id))
 }
 
-/// Change the price of an existing order. If new_price is greater than old
+/// Change the price of an existing order. If `new_price` is greater than old
 /// price, you will be charged
 /// (newPrice-oldPrice)*remainingAmount*[`MARKET_FEE`] credits.
 ///

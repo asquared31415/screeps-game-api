@@ -100,7 +100,7 @@ impl LocalCostMatrix {
 }
 
 impl From<LocalCostMatrix> for Vec<u8> {
-    /// Returns a vector of bits length ROOM_AREA, where each position is
+    /// Returns a vector of bits length `ROOM_AREA`, where each position is
     /// `idx = ((x * ROOM_SIZE) + y)`.
     #[inline]
     fn from(lcm: LocalCostMatrix) -> Vec<u8> {

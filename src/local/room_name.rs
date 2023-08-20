@@ -54,7 +54,7 @@ impl fmt::Display for RoomName {
     /// Formats this room name into the format the game expects.
     ///
     /// Resulting string will be `(E|W)[0-9]+(N|S)[0-9]+`, and will result
-    /// in the same RoomName if passed into [`RoomName::new`].
+    /// in the same `RoomName` if passed into [`RoomName::new`].
     ///
     /// If the `sim` feature is enabled, the room corresponding to W127N127
     /// outputs `sim` instead.
@@ -179,7 +179,7 @@ impl RoomName {
         Self::from_coords(new_x, new_y).ok()
     }
 
-    /// Converts this RoomName into an efficient, stack-based string.
+    /// Converts this `RoomName` into an efficient, stack-based string.
     ///
     /// This is equivalent to [`ToString::to_string`], but involves no
     /// allocation.
@@ -294,7 +294,7 @@ impl ops::Add<(i32, i32)> for RoomName {
     ///
     /// # Panics
     ///
-    /// Will panic if the addition overflows the boundaries of RoomName.
+    /// Will panic if the addition overflows the boundaries of `RoomName`.
     #[inline]
     fn add(self, (x, y): (i32, i32)) -> Self {
         RoomName::from_coords(self.x_coord() + x, self.y_coord() + y)
@@ -311,7 +311,7 @@ impl ops::Sub<(i32, i32)> for RoomName {
     ///
     /// # Panics
     ///
-    /// Will panic if the subtraction overflows the boundaries of RoomName.
+    /// Will panic if the subtraction overflows the boundaries of `RoomName`.
     #[inline]
     fn sub(self, (x, y): (i32, i32)) -> Self {
         RoomName::from_coords(self.x_coord() - x, self.y_coord() - y)

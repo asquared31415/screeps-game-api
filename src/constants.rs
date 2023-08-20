@@ -4,9 +4,9 @@
 //! `e4589666113334bb1f967b9a5540b642141b6dab`.
 //!
 //! Currently missing:
-//! - OBSTACLE_OBJECT_TYPES
-//! - WORLD_WIDTH / WORLD_HEIGHT (deprecated in Screeps)
-//! - POWER_INFO
+//! - `OBSTACLE_OBJECT_TYPES`
+//! - `WORLD_WIDTH` / `WORLD_HEIGHT` (deprecated in Screeps)
+//! - `POWER_INFO`
 //!
 //! [1]: https://github.com/screeps/common/commits/master/lib/constants.js
 

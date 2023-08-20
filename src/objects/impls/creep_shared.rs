@@ -67,7 +67,7 @@ impl Default for MoveToOptions<fn(RoomName, CostMatrix) -> SingleRoomCostResult>
 }
 
 impl MoveToOptions<fn(RoomName, CostMatrix) -> SingleRoomCostResult> {
-    /// Creates default SearchOptions
+    /// Creates default `SearchOptions`
     pub fn new() -> Self {
         Self::default()
     }
@@ -172,7 +172,7 @@ where
         self
     }
 
-    /// Sets options related to FindPathOptions. Defaults to FindPathOptions
+    /// Sets options related to `FindPathOptions`. Defaults to `FindPathOptions`
     /// default.
     pub fn find_path_options<F2>(
         self,

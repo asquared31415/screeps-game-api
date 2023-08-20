@@ -131,8 +131,8 @@ impl From<Direction> for (i32, i32) {
 impl ::std::ops::Neg for Direction {
     type Output = Direction;
 
-    /// Negates this direction. Top goes to Bottom, TopRight goes to BottomLeft,
-    /// etc.
+    /// Negates this direction. Top goes to Bottom, `TopRight` goes to
+    /// `BottomLeft`, etc.
     ///
     /// Example usage:
     ///

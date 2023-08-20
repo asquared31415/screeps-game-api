@@ -45,7 +45,7 @@ impl RoomTerrain {
         Self::new_internal(&name)
     }
 
-    /// Get a copy of the underlying Uint8Array with the data about the room's
+    /// Get a copy of the underlying `Uint8Array` with the data about the room's
     /// terrain.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#Room.Terrain.getRawBuffer)

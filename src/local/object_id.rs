@@ -25,8 +25,8 @@ pub use raw::*;
 /// storing a packed representation of 12 bytes.
 ///
 /// This object ID is typed, but not strictly. It's completely safe to create an
-/// ObjectId with an incorrect type, and all operations which use the type will
-/// double-check at runtime.
+/// `ObjectId` with an incorrect type, and all operations which use the type
+/// will double-check at runtime.
 ///
 /// With that said, using this can provide nice type inference, and should have
 /// few disadvantages to the lower-level alternative, [`RawObjectId`].
@@ -49,7 +49,7 @@ pub use raw::*;
 /// - ordering of [`RawObjectId`]s
 ///
 /// **Note:** when running on the official screeps server, or on a private
-/// server backed by a MongoDB database, this ordering roughly corresponds to
+/// server backed by a `MongoDB` database, this ordering roughly corresponds to
 /// creation order. The first four bytes of a MongoDB-created `ObjectId` [are
 /// seconds since the epoch when the id was created][1], so up to a second
 /// accuracy, these ids will be sorted by object creation time.

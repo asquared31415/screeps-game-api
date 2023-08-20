@@ -15,9 +15,9 @@ use super::types::{ResourceType, StructureType};
 
 // WORLD_WIDTH/HEIGHT deprecated, not implemented
 
-/// Initial ticks_to_live of a creep without any claim parts.
+/// Initial `ticks_to_live` of a creep without any claim parts.
 pub const CREEP_LIFE_TIME: u32 = 1500;
-/// Initial ticks_to_live of a creep with at least one claim part.
+/// Initial `ticks_to_live` of a creep with at least one claim part.
 pub const CREEP_CLAIM_LIFE_TIME: u32 = 600;
 /// Percentage of TTL-adjusted creep resource costs added to tombstone.
 ///
@@ -332,9 +332,9 @@ pub const CONTROLLER_DOWNGRADE_RESTORE: u32 = 100;
 /// > * Safe mode activation unavailable period starts from this 50% point minus
 /// 5000 ticks.
 ///
-/// For example, a newly upgraded RCL7 room will have 75_000 ticks to downgrade
-/// out of its 150_000 maximum, and safe mode becomes unavailable if the timer
-/// falls below 70_000 ticks.
+/// For example, a newly upgraded RCL7 room will have `75_000` ticks to
+/// downgrade out of its `150_000` maximum, and safe mode becomes unavailable if
+/// the timer falls below `70_000` ticks.
 ///
 /// [`StructureController::ticks_to_downgrade`]:
 /// crate::objects::StructureController::ticks_to_downgrade

@@ -7,8 +7,8 @@
 //! their respective parts of the object, eg.
 //! [`Creep::memory`]/[`StructureSpawn::memory`]. You can work with these
 //! objects using [`js_sys::Reflect`], or by converting the value into a
-//! wasm_bindgen compatible type with the properly access functions you need via
-//! [`wasm_bindgen::JsCast`].
+//! `wasm_bindgen` compatible type with the properly access functions you need
+//! via [`wasm_bindgen::JsCast`].
 //!
 //! [`ROOT`]: crate::memory::ROOT
 //! [`Creep::memory`]: crate::objects::Creep::memory

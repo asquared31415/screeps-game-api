@@ -69,7 +69,7 @@ impl StructureSpawn {
     /// of whether any memory data was passed in the options object_ and enable
     /// the default serialization behavior of the `Memory` object, which may
     /// hamper attempts to directly use `RawMemory`. todo, add note+docs
-    /// about how to replace Memory and/or delete RawMemory._parsed
+    /// about how to replace Memory and/or delete `RawMemory._parsed`
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#StructureSpawn.spawnCreep)
     pub fn spawn_creep(&self, body: &[Part], name: &str) -> Result<(), ErrorCode> {
@@ -84,7 +84,7 @@ impl StructureSpawn {
     /// of whether any memory data was passed in the options object_ and enable
     /// the default serialization behavior of the `Memory` object, which may
     /// hamper attempts to directly use `RawMemory`. todo, add note+docs
-    /// about how to replace Memory and/or delete RawMemory._parsed
+    /// about how to replace Memory and/or delete `RawMemory._parsed`
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#StructureSpawn.spawnCreep)
     pub fn spawn_creep_with_options(

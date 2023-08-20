@@ -196,7 +196,7 @@ extern "C" {
 }
 
 impl RoomPosition {
-    /// Create a new RoomPosition using the normal constructor, taking
+    /// Create a new `RoomPosition` using the normal constructor, taking
     /// coordinates and the room name.
     ///
     /// [Screeps documentation](https://docs.screeps.com/api/#RoomPosition.constructor)

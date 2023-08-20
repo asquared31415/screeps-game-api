@@ -1,8 +1,8 @@
 //! Room position type and related operations and traits.
 //!
 //! This is a reimplementation/translation of the `RoomPosition` code originally
-//! written in JavaScript. All RoomPosition to RoomPosition operations in this
-//! file stay within Rust.
+//! written in JavaScript. All `RoomPosition` to `RoomPosition` operations in
+//! this file stay within Rust.
 use core::fmt::Debug;
 use std::{
     cmp::{Ord, Ordering, PartialOrd},
